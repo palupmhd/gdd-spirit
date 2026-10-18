@@ -2,6 +2,8 @@
 
 Dokumen ini menggambarkan seperti apa satu battle terlihat dan terasa, dengan bahasa sederhana. Aturannya mengikuti [v3.3](v3.3-status.md) dan default di [asumsi prototipe](prototype-assumptions.md). Tata letak layar, sudut kamera, dan warna adalah usulan visual, bukan aturan, jadi bebas diubah.
 
+Catatan: sebagian isi dokumen ini sudah berubah lewat [log keputusan](keputusan.md). Chain sekarang mengurangi damage, bukan membatalkan (lihat [chain dan tipe](chain-dan-tipe.md)), jadi contoh chain di bawah memakai model lama. Match selesai di 3 KO, Last Stand dihapus, dan spirit di bench memulihkan luka ringan. Gaya visual masih dikaji di [arah visual](arah-visual.md).
+
 ## Sekilas
 
 Bayangkan kamu menonton dua pasang spirit bertarung sendiri di sebuah arena kecil. Mereka bergerak, memukul, dan mengeluarkan jurus kecil tanpa kamu sentuh. Tugasmu seperti pelatih di pinggir lapangan yang memegang tiga tombol penting: kapan jurus besar keluar, kapan menangkis serangan lawan, dan kapan mengganti pemain.

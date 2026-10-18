@@ -6,23 +6,25 @@ Panduan untuk Claude Code di repo ini. Baca seluruhnya sebelum mengerjakan apa p
 
 Pemanggil Spirit (judul kerja) adalah game PvP battle 2v2 untuk PC/Steam, premium sekali beli, dibuat solo oleh Upi dengan Unity. Spirit bertarung otomatis sesuai role. Pemain mengatur kapan Skill Utama dipakai, kapan menjawab serangan lewat chain aksi-reaksi, dan kapan merotasi spirit. Sumber dayanya: mana bersama, timeline icon, dan beban reaction.
 
-Fase sekarang: membangun prototipe grey-box dari aturan v3.3. Belum ada kode di repo. Sim C# lama (`pemanggil-sim-m1.zip`, aturan v4, 82 tes) ada di tangan Upi dan akan di-port ke sini.
+Fase sekarang: membangun prototipe grey-box dari aturan v3.3 ditambah keputusan di `docs/design/keputusan.md`. Belum ada kode di repo. Sim C# lama (`pemanggil-sim-m1.zip`, aturan v4, 82 tes) ada di tangan Upi dan akan di-port ke sini.
 
 ## Dokumen sumber kebenaran
 
 Baca sesuai kebutuhan, dengan urutan prioritas ini:
 
-1. `docs/design/v3.3-status.md`: aturan battle yang berlaku. Beku.
-2. `docs/design/prototype-assumptions.md`: jawaban untuk hal yang belum didefinisikan dokumen status. Wajib dibaca sebelum menyentuh logika battle.
-3. `docs/design/pillars.md`: pilar dan batasan. Masih draft.
-4. `docs/design/hypothesis-backlog.md`: usulan perubahan yang menunggu playtest.
-5. `docs/design/review-v3.3.md`: analisis, data pasar, dan alasan di balik backlog.
-6. `docs/design/gambaran-battle.md`: gambaran visual dan alur battle dengan bahasa sederhana. Acuan untuk presentation dan UI, bukan aturan.
-7. `docs/design/diskusi-*.md`: catatan diskusi dengan Upi, termasuk usulan yang menunggu keputusan dan daftar animasi.
+1. `docs/design/keputusan.md`: keputusan Upi yang mengubah v3.3. Menang kalau bertentangan dengan dokumen lain.
+2. `docs/design/v3.3-status.md`: aturan battle dasar. Beku, kecuali yang diubah keputusan.
+3. `docs/design/chain-dan-tipe.md`: aturan chain dan tipe serangan yang berlaku (keputusan D1).
+4. `docs/design/prototype-assumptions.md`: jawaban untuk hal yang belum didefinisikan dokumen status. Wajib dibaca sebelum menyentuh logika battle.
+5. `docs/design/pillars.md`: pilar dan batasan. Masih draft.
+6. `docs/design/hypothesis-backlog.md`: usulan perubahan yang menunggu playtest.
+7. `docs/design/review-v3.3.md`: analisis, data pasar, dan alasan di balik backlog.
+8. `docs/design/gambaran-battle.md` dan `docs/design/arah-visual.md`: gambaran alur battle dan kajian gaya visual. Acuan untuk presentation dan UI, bukan aturan.
+9. `docs/design/diskusi-*.md`: catatan diskusi dengan Upi, termasuk usulan yang menunggu keputusan dan daftar animasi.
 
 ## Aturan desain (paling penting)
 
-- v3.3 beku sampai prototipe dimainkan. Jangan membuat v3.4, v4, atau versi baru di atas kertas, walaupun diminta "menyempurnakan". Ide baru masuk ke backlog hipotesis dengan format: masalah, perubahan, preseden, metrik lolos.
+- Aturan yang berlaku adalah v3.3 ditambah `docs/design/keputusan.md`. Selain itu, aturan beku sampai prototipe dimainkan. Keputusan baru hanya dicatat kalau Upi memutuskan secara eksplisit. Jangan membuat v3.4, v4, atau versi baru di atas kertas, walaupun diminta "menyempurnakan". Ide baru masuk ke backlog hipotesis dengan format: masalah, perubahan, preseden, metrik lolos.
 - Hipotesis boleh diimplementasikan sebagai toggle di konfigurasi, mati secara default. Default hanya diubah oleh Upi, satu perubahan per putaran playtest.
 - Kalau aturan ambigu saat coding, jangan menebak diam-diam. Pakai default di `prototype-assumptions.md`. Kalau belum ada, tambahkan baris baru dengan default dan status "menunggu Upi", lalu sebutkan di jawaban.
 - Jangan menghidupkan lagi mekanik yang diarsipkan (stance tersembunyi, commit reaction tersembunyi, feint, dorong/tarik icon lawan) kecuali Upi minta secara eksplisit. Semuanya bertentangan dengan pilar manajemen atau sudah terbukti merusak.
@@ -49,7 +51,9 @@ Istilah desain berbahasa Indonesia, identifier kode berbahasa Inggris:
 | Perfect Swap, Swap Darurat | `PerfectSwap`, `EmergencySwap` |
 | Intro, Outro | `Intro`, `Outro` |
 | Resonansi | `Resonance` |
-| Last Stand | `LastStand` |
+| Power, Tahan, Tekan | `Power`, `Block`, `Press` |
+| Tertahan penuh, chip damage, tangkisan cocok tipe | `FullBlock`, `ChipDamage`, `TypeMatch` |
+| Luka ringan | `RecoverableDamage` |
 | Fase Akhir | `Overtime` |
 | Vanguard, Striker, Diver, Controller, Support | `Role.Vanguard`, dan seterusnya |
 
@@ -68,7 +72,7 @@ Aturan Core (`Spirit.Core`):
 - Logika tidak bergantung pada urutan enumerasi `Dictionary` atau `HashSet`. Pakai array atau `List` dengan tie-break eksplisit (indeks slot spirit).
 - API: `Match.Step(commands)` maju satu tick dan menghasilkan event. Command: `UseMainSkill`, `Charge`, `PerfectSwap`, `EmergencySwap`, `AddLayer`, `Pass`, `Resonate`, `Surrender`. Presentation membaca snapshot state dan event, tidak pernah mengubah state.
 - Semua angka aturan ada di konfigurasi (data), tidak di-hard-code. Core menerima objek konfigurasi yang sudah jadi. Parsing JSON dilakukan di luar Core.
-- Resolver chain di balik interface (`IChainResolver`) supaya hipotesis H3 dan H4 bisa diuji tanpa membongkar Core.
+- Resolver chain di balik interface (`IChainResolver`). Default-nya model pengurangan damage (keputusan D1). Model pembatalan v3.3 disimpan sebagai pembanding di sim.
 
 Batas bahasa C#: Unity 6 memakai C# 9 dan .NET Standard 2.1, jadi Core dan AI tidak boleh memakai file-scoped namespace, global using, `required`, raw string literal, atau list pattern. `record` dan `init` butuh shim `IsExternalInit`. Hindari kecuali shim sudah ada.
 
@@ -113,13 +117,14 @@ Setiap aturan punya tes unit yang namanya menyebut aturannya, misalnya `Chain_De
 
 Sim harus mencatat metrik yang menjawab pertanyaan playtest dan masalah yang diketahui:
 
-- Distribusi kedalaman chain dan pemenangnya per kedalaman.
+- Distribusi kedalaman chain, mana yang dibakar tiap pihak, dan damage akhir per chain.
 - Untuk setiap Skill Utama yang mendarat: alasan pihak bertahan tidak menjawab (icon belum lewat garis tengah secara alami, icon mundur karena reaksi sebelumnya, mana kurang, Lelah, stun, tipe tidak cocok, memilih pass).
 - Porsi damage otomatis dan porsi damage intro dari total damage.
 - Jeda terpanjang tanpa aksi per pemain.
 - Jumlah dan total durasi slow-mo per menit.
 - Keputusan per menit per pemain.
-- Durasi duel 1v1 dan durasi match.
+- Prediktabilitas chain: seberapa sering hasil chain bisa ditebak dari state yang terlihat saat chain terbuka.
+- Jumlah chain per menit, rata-rata durasi slow-mo per chain, dan durasi match.
 
 ## Batas scope solo dev
 
