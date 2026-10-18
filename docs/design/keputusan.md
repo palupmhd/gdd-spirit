@@ -14,7 +14,7 @@ Aturan yang berlaku untuk prototipe adalah [v3.3](v3.3-status.md) ditambah keput
 
 | Topik | Usulan | Detail |
 | --- | --- | --- |
-| Tipe sebagai efisiensi | Tangkisan yang tidak cocok tipe tetap boleh dipakai dengan nilai separuh. Menggantikan usulan Tahan (H13) | [Chain dan tipe](chain-dan-tipe.md) |
+| Tipe sebagai efisiensi | Tangkisan yang tidak cocok tipe tetap boleh dipakai dengan nilai separuh. Menggantikan usulan Guard (H13) | [Chain dan tipe](chain-dan-tipe.md) |
 | Gaya visual | Kamera 2D samping sudah condong disetujui. Gaya yang diusulkan: panggung wayang dengan dalang sebagai narator | [Arah visual](arah-visual.md) |
 | Resonansi | Terbuka lewat syarat role yang terlihat kedua pemain, tipe Resonansi tidak lagi tersembunyi | [Diskusi 2026-10-18 bagian 2](diskusi-2026-10-18-2.md) |
 | Format | Tetap 2v2 | [Diskusi 2026-10-18 bagian 2](diskusi-2026-10-18-2.md) |
