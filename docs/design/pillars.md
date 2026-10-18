@@ -1,65 +1,44 @@
 # Pilar (draft)
 
-Status: belum dikunci. Blok "pilar draft · 4 pilar, 1 tujuan, batasan" di dokumen status v3.3 tidak ikut terekspor, jadi isinya perlu ditulis ulang oleh Upi di sini.
-
-Yang sudah pasti dari dokumen status:
-
-- Salah satu pilar adalah manajemen, bukan tebakan. v4 dan v5 diarsipkan karena mengubah game menjadi tebak-tebakan.
-- Setiap aturan baru dinilai dengan satu pertanyaan: apakah aturan ini mendekatkan game ke pilar, atau menjauhkannya?
-
-## Pertanyaan pemandu
-
-Pilar disusun dari kata-kata Upi sendiri. Upi menjawab pertanyaan di bawah dengan singkat, tidak harus semua. Enam pertanyaan bertanda (wajib) adalah minimum. Claude merangkum jawabannya menjadi draft tujuan dan pilar, lalu Upi mengoreksi.
-
-### Tujuan
-
-1. (wajib) Lengkapi kalimat ini: "Pemanggil Spirit adalah game tentang ___."
-2. (wajib) Setelah satu match, kalimat apa yang kamu harap diucapkan pemain ke temannya?
-3. Di momen terbaik satu match, perasaan apa yang paling kamu kejar?
-
-### Peran pemain
-
-4. (wajib) "Manajemen, bukan tebakan": manajemen atas apa yang paling penting? Urutkan: mana, waktu di timeline, rotasi tim, atau risiko di chain.
-5. Saat pemain kalah, kesalahan apa yang kamu ingin mereka sadari sendiri?
-6. Informasi lawan apa yang boleh tersembunyi, dan di mana batasnya sebelum jadi tebakan?
-
-### Spirit dan auto battle
-
-7. Spirit itu apa bagi pemain: alat, rekan setim, atau makhluk dengan kepribadian?
-8. (wajib) Seberapa besar auto battle boleh menentukan hasil match? Kalau AI spirit berbuat bodoh, apa yang harus terjadi?
-
-### Tempo dan aksi-reaksi
-
-9. (wajib) Kalau harus memilih satu: auto battle yang mengalir tanpa banyak jeda, atau chain yang dalam walau sering slow-mo?
-10. Dalam satu menit, berapa kali pemain harus merasa "ini keputusan penting"?
-11. Dari LoR dan FaB, bagian mana yang paling wajib terasa di game ini?
-
-### Pemain dan batasan diri
-
-12. Siapa pemain idealmu? Sebutkan 2 game yang dia mainkan sekarang.
-13. Apa yang membuat pemain kembali besok?
-14. (wajib) Sebutkan 3 hal yang pasti bukan game ini.
-15. Fitur favoritmu mana yang rela dibuang kalau ternyata bertentangan dengan pilar?
-
-## Cara menyaring jawaban menjadi pilar
-
-1. Cari kata dan perasaan yang muncul berulang di jawaban.
-2. Tulis pilar sebagai kalimat pendek tentang pengalaman pemain, bukan fitur. "Ada chain" adalah fitur. "Setiap kekalahan bisa dijelaskan oleh keputusan sendiri" adalah pilar.
-3. Uji setiap pilar dengan tiga syarat:
-   - Bisa dipakai untuk menolak minimal satu ide nyata. Ujicobakan ke keputusan D1 sampai D3, tipe sebagai efisiensi, Resonansi, dan gaya wayang.
-   - Spesifik untuk game ini. "Seru" dan "berkualitas" tidak lolos.
-   - Diurutkan 1 sampai 4, supaya kalau dua pilar bertentangan, yang urutannya lebih tinggi menang.
+Status: draft yang disusun Claude dari jawaban Upi (2026-10-18), menunggu koreksi dan urutan final dari Upi. Setelah dikunci, keputusan D1 sampai D3 dan semua usulan dinilai ulang dengan pilar ini. Blok pilar asli di dokumen status v3.3 tidak ikut terekspor, jadi dokumen ini menggantikannya.
 
 ## Tujuan
 
-(Diisi Upi.)
+Pemanggil Spirit adalah game tentang menjadi pelatih. Spirit bertarung dengan nalurinya sendiri, dan pemain menang lewat strategi, timing, dan cara memakai sumber daya. Rasa puasnya seperti menang poker: menang karena keputusan yang lebih baik.
 
-## Empat pilar
+## Empat pilar (urutan usulan, yang lebih atas menang kalau bertentangan)
 
-1. Manajemen, bukan tebakan. (Penjelasan diisi Upi.)
-2. (Diisi Upi.)
-3. (Diisi Upi.)
-4. (Diisi Upi.)
+1. Pelatih, bukan pemain. Keputusan di tangan pemain, eksekusi di tangan spirit. Setiap hasil match bisa ditelusuri ke keputusan pemain, bukan ke kecepatan tangan atau keberuntungan. Auto battle adalah lapangan, bukan permainannya.
+2. Manajemen terbuka. Semua yang dibutuhkan untuk memutuskan terlihat di layar: mana, timeline, beban, kondisi tim. Pemain menang karena efisien dan efektif memakai sumber daya, dan kalah karena serakah. Keserakahan harus selalu menggoda dan selalu ada harganya.
+3. Aksi-reaksi adalah jantung. Chain adalah momen terpenting: setiap jawaban adalah taruhan sumber daya, seperti raise di poker. Game rela melambat demi chain, asal setiap chain berisi keputusan nyata.
+4. Naluri yang bisa dipelajari. Setiap spirit punya kepribadian lewat naluri yang konsisten, seperti troop di Clash of Clans yang punya target favorit masing-masing. Kalau spirit terlihat bodoh, itu karena pemain salah memakainya, dan pemain bisa melihat kenapa.
+
+## Bukan game ini
+
+- Tebak-tebakan.
+- Adu kecepatan tangan.
+- Game auto yang cukup ditonton.
+
+## Ketegangan yang perlu dijawab Upi
+
+1. Poker dan tebak-tebakan. Keseruan poker sebagian datang dari kartu tersembunyi dan bluff, padahal tebak-tebakan dilarang. Usulan: rasa poker datang dari chain sebagai ronde taruhan dengan "tumpukan chip" (mana) yang terlihat, dan membaca lawan dilakukan dari informasi terbuka. Kalau Upi ingin unsur bluff, satu-satunya sumber yang masih ada adalah loadout tersembunyi di ranked. Perlu diputuskan: dipertahankan sebagai sumber bluff, atau dibuka.
+2. Urutan pilar. Upi menjawab "semuanya" untuk prioritas manajemen. Urutan di atas adalah usulan Claude: identitas pelatih paling atas, chain sebagai alat manajemen.
+
+## Uji draft pilar terhadap keputusan dan usulan
+
+| Item | Hasil | Alasan |
+| --- | --- | --- |
+| D1, chain mengurangi damage | Lolos kuat | Chain jadi ronde taruhan sumber daya (pilar 2 dan 3) |
+| D2, luka ringan | Netral | Tidak bertentangan, tapi juga tidak didorong pilar, dan data v3.3 menyebut rotasi bench sudah berarti. Sebaiknya toggle mati di grey-box pertama |
+| D3, menang di 3 KO | Lolos | Menghapus duel macet yang tidak berisi keputusan (pilar 1) |
+| Tipe sebagai efisiensi | Lolos | Efisiensi adalah kata Upi sendiri, dan lubang tipe karena loadout tersembunyi adalah tebakan (pilar 2) |
+| Resonansi lewat syarat role yang terlihat | Lolos | Terbuka dan bisa dicegah lawan (pilar 2) |
+| Loadout tersembunyi di ranked | Dipertanyakan | Sumber tebakan. Tergantung jawaban ketegangan nomor 1 |
+| Mitigasi slow-mo "tekan tombol saat ancang-ancang" | Ditolak | Adu kecepatan tangan |
+| Chain tanpa keputusan nyata (hanya seremoni) | Ditolak | Pilar 3 mensyaratkan keputusan nyata. Butuh auto-pass yang pintar |
+| Porsi damage otomatis 20 sampai 25% | Lolos, mungkin perlu lebih rendah | Auto battle adalah lapangan, bukan permainannya (pilar 1) |
+| Naluri per spirit, bukan hanya per role | Didorong | Kepribadian lewat naluri yang konsisten (pilar 4) |
+| Gaya wayang | Di luar cakupan pilar | Soal presentasi. Pilar 4 bisa didukung gaya apa pun, jadi tetap ditunda sampai grey-box |
 
 ## Batasan
 
@@ -71,3 +50,40 @@ Batasan bukan pilar, tapi syarat yang harus dipenuhi setiap versi.
 - Bisa dimainkan melawan AI, ghost async, lalu PvP live.
 - Terasa aksi-reaksi ala LoR/FaB.
 - Game premium PC/Steam, sekali beli.
+
+## Jawaban Upi (2026-10-18)
+
+| No | Pertanyaan | Jawaban |
+| --- | --- | --- |
+| 1 | Game tentang apa | Seperti pelatih bola. Spirit punya naluri sendiri, tapi keputusan strategi, timing, dan tujuan di tangan pemain |
+| 2 | Kalimat pemain setelah match | Seru, nagih, puas karena strategi epik, seperti menang poker |
+| 3 | Perasaan di momen terbaik | Memaksimalkan sumber daya, efisien dan efektif |
+| 4 | Prioritas manajemen | Semuanya |
+| 5 | Kesalahan yang disadari saat kalah | Serakah |
+| 7 | Spirit bagi pemain | Makhluk yang punya kepribadian |
+| 8 | Pengaruh auto battle | Seperti troop di Clash of Clans: troop terlihat bodoh karena pemainnya belum mahir |
+| 9 | Auto battle mengalir atau chain dalam | Chain |
+| 11 | Bagian LoR dan FaB yang wajib terasa | Aksi-reaksi |
+| 14 | Pasti bukan game ini | Tebak-tebakan, kecepatan tangan, auto gameplay |
+
+Belum dijawab: 6 (informasi tersembunyi), 10 (keputusan penting per menit), 12 (pemain ideal), 13 (alasan kembali besok), 15 (fitur yang rela dibuang). Nomor 6 paling penting karena terkait ketegangan nomor 1.
+
+## Pertanyaan pemandu (referensi)
+
+1. Lengkapi kalimat ini: "Pemanggil Spirit adalah game tentang ___."
+2. Setelah satu match, kalimat apa yang kamu harap diucapkan pemain ke temannya?
+3. Di momen terbaik satu match, perasaan apa yang paling kamu kejar?
+4. "Manajemen, bukan tebakan": manajemen atas apa yang paling penting? Urutkan: mana, waktu di timeline, rotasi tim, atau risiko di chain.
+5. Saat pemain kalah, kesalahan apa yang kamu ingin mereka sadari sendiri?
+6. Informasi lawan apa yang boleh tersembunyi, dan di mana batasnya sebelum jadi tebakan?
+7. Spirit itu apa bagi pemain: alat, rekan setim, atau makhluk dengan kepribadian?
+8. Seberapa besar auto battle boleh menentukan hasil match? Kalau AI spirit berbuat bodoh, apa yang harus terjadi?
+9. Kalau harus memilih satu: auto battle yang mengalir tanpa banyak jeda, atau chain yang dalam walau sering slow-mo?
+10. Dalam satu menit, berapa kali pemain harus merasa "ini keputusan penting"?
+11. Dari LoR dan FaB, bagian mana yang paling wajib terasa di game ini?
+12. Siapa pemain idealmu? Sebutkan 2 game yang dia mainkan sekarang.
+13. Apa yang membuat pemain kembali besok?
+14. Sebutkan 3 hal yang pasti bukan game ini.
+15. Fitur favoritmu mana yang rela dibuang kalau ternyata bertentangan dengan pilar?
+
+Cara menyaring jawaban menjadi pilar: cari kata dan perasaan yang berulang, tulis pilar sebagai kalimat tentang pengalaman pemain (bukan fitur), lalu uji setiap pilar. Pilar harus bisa menolak minimal satu ide nyata, harus spesifik untuk game ini ("seru" tidak lolos), dan harus punya urutan.
