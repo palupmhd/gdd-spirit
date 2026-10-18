@@ -28,6 +28,8 @@ A0. Grey-box pertama memakai 4 spirit per tim (2 di arena, 2 di bench), tanpa dr
 | A14 | Berapa laju Energy per role? | Dokumen hanya menyebut sumbernya | Skill Auto keluar rata-rata setiap 12 detik untuk semua role. Laju per sumber disetel lewat sim agar rata-ratanya sama |
 | A15 | Apakah bot dan pemain boleh pass di giliran pertama pihak bertahan? | Menentukan apakah membiarkan serangan masuk itu pilihan | Ya. Pass di giliran pertama berarti serangan langsung masuk tanpa slow-mo berlanjut |
 | A16 | Berapa biaya mana Skill Utama? | Dokumen status menyebut zona slow menambah 2 mana ke Skill Utama, tapi biaya dasarnya tidak pernah ditulis. Ekonomi mana v3.2 sudah terlalu ketat | 3 mana untuk semua spirit. Disetel lewat sim bersama ekonomi mana |
+| A17 | Bagaimana Burst bekerja? | Dokumen status hanya menyebut khusus Controller, 4 mana, tidak bisa dijawab, menutup chain, 2 beban | Burst mengisi satu dari 2 slot tangkisan Controller. Dipakai sebagai layer oleh pihak mana pun, membatalkan layer tepat di bawahnya apa pun tipenya, lalu chain langsung diselesaikan. Syarat sama dengan tangkisan lain. Tidak bisa membuka serangan |
+| A18 | Kalau menang di 3 KO (H15) dipakai, bagaimana kalau kedua tim mencapai KO ketiga di tick yang sama? | Tanpa aturan, match tidak punya pemenang | Tim dengan total persentase HP tersisa lebih tinggi menang. Kalau sama persis, seri |
 
 ## Catatan implementasi
 

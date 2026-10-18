@@ -41,7 +41,7 @@ Satu match berlangsung 5 sampai 7 menit dan selesai saat salah satu tim kehilang
 
 Huruf besar (A, B, C, D) adalah spirit kamu, huruf kecil milik lawan.
 
-- Arena (usulan): dilihat miring dari atas, seperti Pokémon Unite atau TFT, supaya posisi depan, belakang, dan samping terlihat jelas. Tim kamu di kiri, lawan di kanan.
+- Arena (usulan): 2D dengan kamera samping. Tim kamu di kiri menghadap kanan, lawan di kanan menghadap kiri. Setiap tim punya posisi depan (dekat tengah) dan belakang (sedikit lebih tinggi dan lebih jauh), dan spirit hanya bergerak ke kiri dan kanan. Detailnya ada di [diskusi 2026-10-18](diskusi-2026-10-18.md), poin 4.
 - Di atas kepala setiap spirit ada bar HP (nyawa), bar Energy kecil (pengisi jurus otomatis), titik beban (berapa kali spirit itu baru saja menangkis), dan ikon status seperti stun (pingsan sesaat).
 - Timeline (jalur giliran) ada di atas. Keempat ikon spirit di arena berjalan dari kiri ke kanan di satu jalur yang sama.
 - Mana kamu ada di bawah, mana lawan di kanan atas. Kedua pemain bisa melihat mana satu sama lain.
@@ -55,7 +55,7 @@ Spirit bergerak dan menyerang sendiri sesuai role (peran) masing-masing. Dari ke
 | --- | --- |
 | Vanguard (penjaga depan) | Maju paling depan, menahan lawan, menghalangi jalan ke partnernya |
 | Striker (penembak) | Berdiri di belakang dan menyerang terus dari jarak jauh |
-| Diver (penyusup) | Memutar lewat samping untuk mengejar lawan yang berdiri di belakang |
+| Diver (penyusup) | Melompat melewati spirit depan lawan untuk mengejar lawan yang berdiri di belakang |
 | Controller (pengatur medan) | Memasang zona, misalnya area yang membuat lawan lambat, dan mengganggu lawan |
 | Support (pendukung) | Menjaga dan memulihkan partner, menjauh dari bahaya |
 
@@ -118,7 +118,7 @@ Setiap pemain punya jatah waktu berpikir 35 detik untuk seluruh match. Kalau hab
 
 ### Contoh satu chain
 
-Tim kamu: Karang (Vanguard) menahan di depan, Bara (Diver, cepat) memutar lewat samping. Tim lawan: Petir (Striker) dan Kabut (Controller). Mana kamu 7, mana lawan 8.
+Tim kamu: Karang (Vanguard) menahan di depan, Bara (Diver, cepat) melompat ke belakang lawan. Tim lawan: Petir (Striker) dan Kabut (Controller). Mana kamu 7, mana lawan 8.
 
 1. Ikon Petir sampai di ujung. Lawan memakai jurus besar Petir ke Bara. Ancang-ancangnya berwarna biru, berarti Lontaran. Mana lawan turun jadi 5.
 2. Karang membawa Shield, ikonnya sudah lewat garis tengah, dan mana kamu cukup. Chain terbuka dan layar melambat.
