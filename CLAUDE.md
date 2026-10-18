@@ -17,6 +17,7 @@ Baca sesuai kebutuhan, dengan urutan prioritas ini:
 3. `docs/design/pillars.md`: pilar dan batasan. Masih draft.
 4. `docs/design/hypothesis-backlog.md`: usulan perubahan yang menunggu playtest.
 5. `docs/design/review-v3.3.md`: analisis, data pasar, dan alasan di balik backlog.
+6. `docs/design/gambaran-battle.md`: gambaran visual dan alur battle dengan bahasa sederhana. Acuan untuk presentation dan UI, bukan aturan.
 
 ## Aturan desain (paling penting)
 

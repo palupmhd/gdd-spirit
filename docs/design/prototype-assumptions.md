@@ -27,6 +27,7 @@ A0. Grey-box pertama memakai 4 spirit per tim (2 di arena, 2 di bench), tanpa dr
 | A13 | Siapa memilih pengganti setelah KO? | Dokumen hanya menyebut waktu masuk | Pemain memilih dalam 3 detik. Kalau tidak memilih, spirit pertama di urutan bench masuk |
 | A14 | Berapa laju Energy per role? | Dokumen hanya menyebut sumbernya | Skill Auto keluar rata-rata setiap 12 detik untuk semua role. Laju per sumber disetel lewat sim agar rata-ratanya sama |
 | A15 | Apakah bot dan pemain boleh pass di giliran pertama pihak bertahan? | Menentukan apakah membiarkan serangan masuk itu pilihan | Ya. Pass di giliran pertama berarti serangan langsung masuk tanpa slow-mo berlanjut |
+| A16 | Berapa biaya mana Skill Utama? | Dokumen status menyebut zona slow menambah 2 mana ke Skill Utama, tapi biaya dasarnya tidak pernah ditulis. Ekonomi mana v3.2 sudah terlalu ketat | 3 mana untuk semua spirit. Disetel lewat sim bersama ekonomi mana |
 
 ## Catatan implementasi
 
