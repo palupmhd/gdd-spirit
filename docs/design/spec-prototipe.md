@@ -162,3 +162,7 @@ Kalau ada aturan yang ambigu saat coding, tambahkan baris di sini dengan default
 | No | Pertanyaan | Default sementara |
 | --- | --- | --- |
 | 1 | Bagaimana posisi depan dan belakang ditentukan di arena 2D samping, dan apa artinya untuk target Kontak? | Spirit yang lebih dekat ke tengah adalah posisi depan. Kontak boleh menargetkan siapa saja |
+| 2 | Bolehkah satu spirit memakai tangkisan yang sama dua kali dalam satu chain? | Boleh. Tangkisan adalah kemampuan, bukan kartu sekali pakai. Batasnya mana dan beban |
+| 3 | Lelah adalah status, dan status berhenti di bench. Apakah Lelah ikut beku di bench? | Tidak. Lelah hilang saat beban direset setelah 50 tick di bench, karena bench adalah obat beban |
+| 4 | Kenaikan damage pertama di Fase Akhir terjadi di 4:00 atau 4:30? | 4:30, lalu setiap 30 detik setelahnya. Regen mana dua kali lipat sudah mulai di 4:00 |
+| 5 | Tipe Resonansi dipilih per tim atau per spirit? | Satu tipe per tim, dipakai oleh spirit mana pun yang beresonansi |
