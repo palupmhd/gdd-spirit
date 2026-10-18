@@ -1,5 +1,7 @@
 # Asumsi Prototipe v3.3
 
+Catatan: semua jawaban di sini sudah digabung ke [spec prototipe](spec-prototipe.md) dan dokumen ini tidak diperbarui lagi. Pertanyaan baru ditulis di bagian Pertanyaan terbuka di spec.
+
 Dokumen status v3.3 cukup untuk dibaca manusia, tapi belum cukup untuk ditulis jadi kode. Setiap baris di bawah adalah pertanyaan yang harus punya jawaban sebelum core sim bisa jalan. Default dipilih yang paling sederhana dan paling dekat dengan bunyi dokumen status. Semua default berupa parameter di data, jadi bisa diubah tanpa menyentuh kode.
 
 Status: menunggu Upi. Baris yang sudah digantikan [log keputusan](keputusan.md) ditandai di kolom default. Upi cukup menulis "setuju" atau koreksi per baris. Kalau ada ambiguitas baru saat coding, tambahkan baris baru dengan default dan status "menunggu Upi", jangan menebak diam-diam.

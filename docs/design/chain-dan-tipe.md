@@ -1,5 +1,7 @@
 # Chain dan Tipe
 
+Catatan: isi dokumen ini sudah digabung ke [spec prototipe](spec-prototipe.md) dan tidak diperbarui lagi. Dokumen ini disimpan untuk riset dan alasan di balik keputusan D1.
+
 Status: arah disetujui Upi (keputusan D1). Angka masih usulan dan disetel lewat sim. Bagian "tipe sebagai efisiensi" masih menunggu persetujuan Upi. Dokumen ini menggantikan bagian Chain, Skill Utama dan tipe serangan, dan Burst di v3.3, serta asumsi A4 dan A17.
 
 ## Intinya

@@ -6,28 +6,36 @@ Panduan untuk Claude Code di repo ini. Baca seluruhnya sebelum mengerjakan apa p
 
 Pemanggil Spirit (judul kerja) adalah game PvP battle 2v2 untuk PC/Steam, premium sekali beli, dibuat solo oleh Upi dengan Unity. Spirit bertarung otomatis sesuai role. Pemain mengatur kapan Skill Utama dipakai, kapan menjawab serangan lewat chain aksi-reaksi, dan kapan merotasi spirit. Sumber dayanya: mana bersama, timeline icon, dan beban reaction.
 
-Fase sekarang: membangun prototipe grey-box dari aturan v3.3 ditambah keputusan di `docs/design/keputusan.md`. Belum ada kode di repo. Sim C# lama (`pemanggil-sim-m1.zip`, aturan v4, 82 tes) ada di tangan Upi dan akan di-port ke sini.
+Fase sekarang: membangun prototipe grey-box dari `docs/design/spec-prototipe.md`. Belum ada kode di repo. Sim C# lama (`pemanggil-sim-m1.zip`, aturan v4, 82 tes) ada di tangan Upi dan akan di-port ke sini.
 
-## Dokumen sumber kebenaran
+## Pilar (dikunci)
 
-Baca sesuai kebutuhan, dengan urutan prioritas ini:
+Tujuan: pemain adalah pelatih. Spirit bertarung dengan nalurinya sendiri, dan pemain menang lewat strategi, timing, dan cara memakai sumber daya, dengan rasa puas seperti menang poker. Urutan pilar menentukan siapa yang menang kalau dua pilar bertentangan:
 
-1. `docs/design/keputusan.md`: keputusan Upi yang mengubah v3.3. Menang kalau bertentangan dengan dokumen lain.
-2. `docs/design/v3.3-status.md`: aturan battle dasar. Beku, kecuali yang diubah keputusan.
-3. `docs/design/chain-dan-tipe.md`: aturan chain dan tipe serangan yang berlaku (keputusan D1).
-4. `docs/design/prototype-assumptions.md`: jawaban untuk hal yang belum didefinisikan dokumen status. Wajib dibaca sebelum menyentuh logika battle.
-5. `docs/design/pillars.md`: pilar dan batasan. Masih draft.
-6. `docs/design/hypothesis-backlog.md`: usulan perubahan yang menunggu playtest.
-7. `docs/design/review-v3.3.md`: analisis, data pasar, dan alasan di balik backlog.
-8. `docs/design/gambaran-battle.md` dan `docs/design/arah-visual.md`: gambaran alur battle dan kajian gaya visual. Acuan untuk presentation dan UI, bukan aturan.
-9. `docs/design/diskusi-*.md`: catatan diskusi dengan Upi, termasuk usulan yang menunggu keputusan dan daftar animasi.
+1. Pelatih, bukan pemain. Setiap hasil bisa ditelusuri ke keputusan pemain, bukan kecepatan tangan atau keberuntungan.
+2. Manajemen terbuka. Semua kondisi battle terlihat, kecuali loadout di ranked sebagai ruang bluff. Menang karena efisien, kalah karena serakah.
+3. Aksi-reaksi adalah jantung. Chain adalah ronde taruhan sumber daya, dan setiap chain harus berisi keputusan nyata.
+4. Naluri yang bisa dipelajari. Setiap spirit punya naluri yang konsisten dan bisa diantisipasi.
+
+Bukan game ini: tebak-tebakan, adu kecepatan tangan, game auto yang cukup ditonton. Detail ada di `docs/design/pillars.md`.
+
+## Dokumen
+
+Yang berlaku:
+
+1. `docs/design/spec-prototipe.md`: satu-satunya acuan aturan untuk kode. Wajib dibaca sebelum menyentuh logika battle.
+2. `docs/design/pillars.md`: tujuan dan empat pilar. Dasar menilai setiap usulan.
+3. `docs/design/keputusan.md`: log keputusan Upi. Setiap perubahan aturan dicatat di sini dulu, lalu spec diperbarui.
+4. `docs/design/hypothesis-backlog.md`: usulan yang menunggu playtest.
+
+Latar belakang, tidak diperbarui lagi dan bukan acuan aturan: `v3.3-status.md`, `chain-dan-tipe.md`, `prototype-assumptions.md`, `review-v3.3.md`, `gambaran-battle.md`, `arah-visual.md`, dan `diskusi-*.md` di `docs/design/`.
 
 ## Aturan desain (paling penting)
 
-- Aturan yang berlaku adalah v3.3 ditambah `docs/design/keputusan.md`. Selain itu, aturan beku sampai prototipe dimainkan. Keputusan baru hanya dicatat kalau Upi memutuskan secara eksplisit. Jangan membuat v3.4, v4, atau versi baru di atas kertas, walaupun diminta "menyempurnakan". Ide baru masuk ke backlog hipotesis dengan format: masalah, perubahan, preseden, metrik lolos.
+- Aturan yang berlaku hanya `docs/design/spec-prototipe.md`, dan beku sampai prototipe dimainkan. Perubahan hanya kalau Upi memutuskan secara eksplisit: catat di `keputusan.md`, lalu perbarui spec. Jangan membuat v3.4, v4, atau versi baru di atas kertas, walaupun diminta "menyempurnakan". Ide baru masuk ke backlog hipotesis dengan format: masalah, perubahan, preseden, metrik lolos.
 - Hipotesis boleh diimplementasikan sebagai toggle di konfigurasi, mati secara default. Default hanya diubah oleh Upi, satu perubahan per putaran playtest.
-- Kalau aturan ambigu saat coding, jangan menebak diam-diam. Pakai default di `prototype-assumptions.md`. Kalau belum ada, tambahkan baris baru dengan default dan status "menunggu Upi", lalu sebutkan di jawaban.
-- Jangan menghidupkan lagi mekanik yang diarsipkan (stance tersembunyi, commit reaction tersembunyi, feint, dorong/tarik icon lawan) kecuali Upi minta secara eksplisit. Semuanya bertentangan dengan pilar manajemen atau sudah terbukti merusak.
+- Kalau aturan ambigu saat coding, jangan menebak diam-diam. Tambahkan ke bagian Pertanyaan terbuka di spec dengan default yang dipakai, lalu sebutkan di jawaban.
+- Jangan menghidupkan lagi mekanik yang diarsipkan (stance tersembunyi, commit reaction tersembunyi, feint, dorong/tarik icon lawan) kecuali Upi minta secara eksplisit. Semuanya tebak-tebakan atau sudah terbukti merusak. Loadout tersembunyi di ranked adalah bluff yang disengaja (D5), bukan pelanggaran.
 - Setiap usulan aturan dinilai dengan satu pertanyaan: mendekatkan ke pilar, atau menjauhkan?
 - Bukti datang dari playtest manusia. Hasil sim adalah petunjuk arah, bukan bukti.
 
@@ -130,7 +138,7 @@ Sim harus mencatat metrik yang menjawab pertanyaan playtest dan masalah yang dik
 
 - Jangan membangun netcode, backend, akun, monetisasi, atau pipeline art sebelum grey-box terbukti seru.
 - Urutan rilis: lawan AI, lalu PvP async (ghost), lalu PvP live.
-- Scope grey-box mengikuti asumsi A0 di `prototype-assumptions.md`.
+- Scope putaran pertama mengikuti bagian 1 di `spec-prototipe.md`.
 - Pilih solusi paling sederhana yang bisa dimainkan. Abstraksi baru hanya kalau sudah dibutuhkan dua kali.
 
 ## Unity dan git
@@ -144,5 +152,5 @@ Sim harus mencatat metrik yang menjawab pertanyaan playtest dan masalah yang dik
 - Jawab dalam Bahasa Indonesia yang natural dan santai tapi jelas. Istilah teknis bahasa Inggris boleh dipakai kalau memang lazim.
 - Dokumen desain ditulis dalam Bahasa Indonesia. Kode, identifier, komentar kode, dan pesan commit dalam bahasa Inggris.
 - Ringkas dan langsung ke inti. Jangan pakai em dash di dokumen maupun jawaban.
-- Berperan sebagai senior game dev yang skeptis: uji asumsi di balik permintaan, beri data dari game yang sudah ada, dan bantah kalau arahnya merugikan. Tapi tetap hormati pembekuan v3.3.
+- Berperan sebagai senior game dev yang skeptis: uji asumsi di balik permintaan, beri data dari game yang sudah ada, dan bantah kalau arahnya merugikan. Tapi tetap hormati pembekuan spec.
 - Commit kecil dan sering. Satu commit, satu perubahan yang utuh.
