@@ -1,28 +1,28 @@
-# Pilar (draft)
+# Pilar
 
-Status: draft yang disusun Claude dari jawaban Upi (2026-10-18), menunggu koreksi dan urutan final dari Upi. Setelah dikunci, keputusan D1 sampai D3 dan semua usulan dinilai ulang dengan pilar ini. Blok pilar asli di dokumen status v3.3 tidak ikut terekspor, jadi dokumen ini menggantikannya.
+Status: dikunci Upi pada 2026-10-18 (keputusan D4). Disusun Claude dari jawaban Upi, lalu urutannya disetujui Upi. Setiap usulan aturan dinilai dengan satu pertanyaan: mendekatkan ke pilar, atau menjauhkan? Blok pilar asli di dokumen status v3.3 tidak ikut terekspor, jadi dokumen ini menggantikannya.
 
 ## Tujuan
 
 Pemanggil Spirit adalah game tentang menjadi pelatih. Spirit bertarung dengan nalurinya sendiri, dan pemain menang lewat strategi, timing, dan cara memakai sumber daya. Rasa puasnya seperti menang poker: menang karena keputusan yang lebih baik.
 
-## Empat pilar (urutan usulan, yang lebih atas menang kalau bertentangan)
+## Empat pilar (yang lebih atas menang kalau bertentangan)
 
 1. Pelatih, bukan pemain. Keputusan di tangan pemain, eksekusi di tangan spirit. Setiap hasil match bisa ditelusuri ke keputusan pemain, bukan ke kecepatan tangan atau keberuntungan. Auto battle adalah lapangan, bukan permainannya.
-2. Manajemen terbuka. Semua yang dibutuhkan untuk memutuskan terlihat di layar: mana, timeline, beban, kondisi tim. Pemain menang karena efisien dan efektif memakai sumber daya, dan kalah karena serakah. Keserakahan harus selalu menggoda dan selalu ada harganya.
+2. Manajemen terbuka. Semua kondisi battle terlihat di layar: mana, timeline, beban, kondisi tim. Satu-satunya yang tersembunyi adalah loadout di ranked, sebagai ruang bluff seperti kartu tertutup di poker (keputusan D5). Pemain menang karena efisien dan efektif memakai sumber daya, dan kalah karena serakah. Keserakahan harus selalu menggoda dan selalu ada harganya.
 3. Aksi-reaksi adalah jantung. Chain adalah momen terpenting: setiap jawaban adalah taruhan sumber daya, seperti raise di poker. Game rela melambat demi chain, asal setiap chain berisi keputusan nyata.
 4. Naluri yang bisa dipelajari. Setiap spirit punya kepribadian lewat naluri yang konsisten, seperti troop di Clash of Clans yang punya target favorit masing-masing. Kalau spirit terlihat bodoh, itu karena pemain salah memakainya, dan pemain bisa melihat kenapa.
 
 ## Bukan game ini
 
-- Tebak-tebakan.
+- Tebak-tebakan. Bedanya dengan bluff: bluff memakai informasi tersembunyi yang bisa dideduksi dari pool publik dan perilaku lawan (loadout 2 dari 3). Tebak-tebakan adalah pilihan tersembunyi yang diambil bersamaan dan langsung menentukan hasil, seperti stance dan commit tersembunyi di v4 dan v5. Bluff boleh, tebak-tebakan tidak.
 - Adu kecepatan tangan.
 - Game auto yang cukup ditonton.
 
-## Ketegangan yang perlu dijawab Upi
+## Ketegangan yang sudah dijawab Upi
 
-1. Poker dan tebak-tebakan. Keseruan poker sebagian datang dari kartu tersembunyi dan bluff, padahal tebak-tebakan dilarang. Usulan: rasa poker datang dari chain sebagai ronde taruhan dengan "tumpukan chip" (mana) yang terlihat, dan membaca lawan dilakukan dari informasi terbuka. Kalau Upi ingin unsur bluff, satu-satunya sumber yang masih ada adalah loadout tersembunyi di ranked. Perlu diputuskan: dipertahankan sebagai sumber bluff, atau dibuka.
-2. Urutan pilar. Upi menjawab "semuanya" untuk prioritas manajemen. Urutan di atas adalah usulan Claude: identitas pelatih paling atas, chain sebagai alat manajemen.
+1. Poker dan tebak-tebakan: loadout tersembunyi di ranked dipertahankan sebagai sumber bluff (D5). Rasa poker lainnya datang dari chain sebagai ronde taruhan dengan "tumpukan chip" (mana) yang terlihat.
+2. Urutan pilar: urutan usulan Claude disetujui.
 
 ## Uji draft pilar terhadap keputusan dan usulan
 
@@ -31,9 +31,9 @@ Pemanggil Spirit adalah game tentang menjadi pelatih. Spirit bertarung dengan na
 | D1, chain mengurangi damage | Lolos kuat | Chain jadi ronde taruhan sumber daya (pilar 2 dan 3) |
 | D2, luka ringan | Netral | Tidak bertentangan, tapi juga tidak didorong pilar, dan data v3.3 menyebut rotasi bench sudah berarti. Sebaiknya toggle mati di grey-box pertama |
 | D3, menang di 3 KO | Lolos | Menghapus duel macet yang tidak berisi keputusan (pilar 1) |
-| Tipe sebagai efisiensi | Lolos | Efisiensi adalah kata Upi sendiri, dan lubang tipe karena loadout tersembunyi adalah tebakan (pilar 2) |
+| Tipe sebagai efisiensi | Lolos | Efisiensi adalah kata Upi sendiri. Dengan loadout tetap tersembunyi, bluff tetap ada tanpa membuat pemain tidak berdaya (pilar 2) |
 | Resonansi lewat syarat role yang terlihat | Lolos | Terbuka dan bisa dicegah lawan (pilar 2) |
-| Loadout tersembunyi di ranked | Dipertanyakan | Sumber tebakan. Tergantung jawaban ketegangan nomor 1 |
+| Loadout tersembunyi di ranked | Dipertahankan (D5) | Sumber bluff, bukan tebak-tebakan |
 | Mitigasi slow-mo "tekan tombol saat ancang-ancang" | Ditolak | Adu kecepatan tangan |
 | Chain tanpa keputusan nyata (hanya seremoni) | Ditolak | Pilar 3 mensyaratkan keputusan nyata. Butuh auto-pass yang pintar |
 | Porsi damage otomatis 20 sampai 25% | Lolos, mungkin perlu lebih rendah | Auto battle adalah lapangan, bukan permainannya (pilar 1) |
