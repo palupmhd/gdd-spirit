@@ -1,0 +1,44 @@
+# Unity (project lives in Game/)
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Bb]uild/
+**/[Bb]uilds/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
+**/[Mm]emoryCaptures/
+**/[Rr]ecordings/
+**/Assets/Plugins/Editor/JetBrains*
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.apk
+*.aab
+*.unitypackage
+crashlytics-build.properties
+sysinfo.txt
+
+# Keep the hand-written .NET sim projects
+!tools/sim/**/*.csproj
+!tools/sim/**/*.sln
+
+# .NET sim output
+tools/sim/**/bin/
+tools/sim/**/obj/
+tools/sim/**/TestResults/
+
+# IDE / OS
+.vs/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
