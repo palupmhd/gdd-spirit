@@ -30,6 +30,7 @@ Aturan yang berlaku ada di [spec prototipe](spec-prototipe.md), yang disusun dar
 | Topik | Usulan | Detail |
 | --- | --- | --- |
 | Resonance | Terbuka lewat syarat role yang terlihat kedua pemain | Hipotesis H16 |
+| Full Block hampir mustahil | Basic Reaction yang cocok tipe bernilai Block 100 | Hipotesis H23 |
 | Format | Tetap 2v2 sesuai batasan. Tidak ada perubahan kecuali Upi meminta | [Diskusi 2026-10-18 bagian 2](diskusi-2026-10-18-2.md) |
 
 ## Ditunda
