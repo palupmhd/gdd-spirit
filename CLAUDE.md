@@ -163,9 +163,10 @@ Sim harus mencatat metrik yang menjawab pertanyaan playtest dan masalah yang dik
 - Serialization Force Text dan Visible Meta Files (default Unity 6). File `.meta` selalu ikut di-commit.
 - Git LFS dipasang sebelum aset biner pertama (gambar, audio, model) masuk repo.
 - `.gitattributes` memaksa akhir baris LF, supaya file dari container Linux dan dari Windows tidak bentrok.
-- Container cloud tidak punya Unity. Core diverifikasi lewat `dotnet test`. Kode Presentation tidak bisa dikompilasi di container, jadi dibuat setipis mungkin dan Upi melaporkan error Console setelah `git pull`.
-- Jangan menulis `.unity`, `.prefab`, atau asset Unity lain dengan tangan. Scene dibuat Upi di editor dan hanya memuat satu GameObject dengan komponen bootstrap. Isinya dibangun dari kode.
-- Pembagian file supaya tidak bentrok: Claude menyunting `.cs`, `.asmdef`, JSON data, dan dokumen. Upi menyunting scene, Project Settings, dan aset. File `.meta` baru yang dibuat Unity setelah `git pull` di-commit oleh Upi.
+- Pekerjaan berjalan lokal di mesin Upi, jadi tidak ada siklus push dan pull. Claude membaca dan menulis langsung di project Unity yang sama dengan editor.
+- Cek kompilasi dan tes EditMode lewat Unity batchmode (`-runTests -testPlatform EditMode`) atau skill `unity-cli`, jangan menunggu Upi melapor error Console. Batchmode tidak bisa jalan kalau project sedang terbuka di editor.
+- Core tetap harus bisa dibangun dan dites dengan `dotnet` saja. Sesi cloud tidak punya Unity, jadi di sana kode Presentation tidak bisa dikompilasi.
+- Jangan menulis `.unity`, `.prefab`, atau asset Unity lain sebagai YAML dengan tangan. Buat lewat editor, skill `unity-cli`, atau script Editor. Isi scene dibangun dari kode bootstrap.
 
 ## Cara bekerja dengan Upi
 
