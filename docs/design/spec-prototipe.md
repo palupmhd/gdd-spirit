@@ -254,3 +254,7 @@ Kalau ada aturan yang ambigu saat coding, tambahkan baris di sini dengan default
 | 10 | Pressure pada spirit yang load-nya sudah 3 | Tidak ada efek tambahan. Fatigue tetap dipicu satu kali |
 | 11 | Ikon mencapai Ready saat spirit sedang stun | Ready menunggu sampai stun selesai, dan timer menahan Ready tidak berjalan selama stun |
 | 12 | Retreat yang efeknya batal (oleh Lock atau Cancel) | Pertukaran tidak terjadi, dan jeda Emergency Swap tim tidak terpasang |
+| 13 | Cancel sebagai reaction pertama, saat tidak ada reaction di bawahnya | Tidak sah. Akibatnya Cancel tidak dihitung saat memeriksa apakah chain terbuka |
+| 14 | Mundurnya ikon saat Burst menambah 2 load sekaligus | Dihitung dari load setelah reaction itu: dari 0 ke 2 memundurkan 7500, dari 1 ke 3 memicu Fatigue |
+| 15 | Kenaikan damage Overtime menumpuk dengan cara apa | Dijumlahkan: +15% di 4:30, +30% di 5:00, +45% di 5:30, dan seterusnya. Penurunan heal dan perisai HP juga dijumlahkan |
+| 16 | Pembulatan damage setelah modifier | Dibulatkan ke bawah ke bilangan bulat, setelah semua modifier dan sebelum batas Endure |
