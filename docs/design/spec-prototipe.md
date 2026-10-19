@@ -252,3 +252,5 @@ Kalau ada aturan yang ambigu saat coding, tambahkan baris di sini dengan default
 | 8 | Target durasi memakai jam apa | Diputuskan (D16): 5 sampai 7 menit jam dunia, di bawah 10 menit waktu nyata sebagai target |
 | 9 | Spirit pengganti dari Retreat masuk ke chain yang sama? | Tidak. Spirit pengganti hanya menerima serangan dan tidak bisa memasang reaction di chain itu |
 | 10 | Pressure pada spirit yang load-nya sudah 3 | Tidak ada efek tambahan. Fatigue tetap dipicu satu kali |
+| 11 | Ikon mencapai Ready saat spirit sedang stun | Ready menunggu sampai stun selesai, dan timer menahan Ready tidak berjalan selama stun |
+| 12 | Retreat yang efeknya batal (oleh Lock atau Cancel) | Pertukaran tidak terjadi, dan jeda Emergency Swap tim tidak terpasang |
