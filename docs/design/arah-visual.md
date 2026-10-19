@@ -1,5 +1,7 @@
 # Arah Visual dan Presentasi Battle
 
+Catatan: Upi memilih arena 2D dilihat dari atas seperti stadion (keputusan D9). Usulan kamera samping dan panggung wayang di dokumen ini tidak dipakai. Bagian narasi dan pipeline animasi berbasis rig masih bisa jadi referensi.
+
 Status: kajian, menunggu keputusan Upi. Kamera 2D samping sudah condong disetujui. Yang dikaji di sini adalah gaya visualnya.
 
 ## Kenapa ini keputusan besar

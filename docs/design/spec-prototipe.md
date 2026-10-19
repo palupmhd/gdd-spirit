@@ -73,32 +73,34 @@ Setiap tim membawa 4 spirit: 2 di arena dan 2 di bench.
 
 ## 7. Chain (D1)
 
-### Kartu
+Semua yang dipasang di chain disebut reaksi. Reaksi spesial dengan efek dan resolusi efek dari atas (D7) menunggu persetujuan daftar reaksi di [diskusi 2026-10-19](diskusi-2026-10-19.md). Sampai disetujui, bagian ini memakai reaksi dasar, Tekan, dan Burst.
 
-| Kartu | Dipakai oleh | Nilai |
+### Reaksi
+
+| Reaksi | Dipakai oleh | Nilai |
 | --- | --- | --- |
-| Dodge, Shield, Interrupt | Pihak bertahan | Tahan +60 kalau cocok tipe. Di mode izin, kartu yang tidak cocok tidak boleh dipakai. Di mode efisiensi (H17), kartu yang tidak cocok bernilai Tahan +30 |
+| Dodge, Shield, Interrupt | Pihak bertahan | Tahan +60 kalau cocok tipe. Di mode izin, reaksi yang tidak cocok tidak boleh dipakai. Di mode efisiensi (H17), reaksi yang tidak cocok bernilai Tahan +30 |
 | Tekan | Pihak penyerang: si penyerang dan partnernya | Power +30. Dimiliki semua spirit, tidak butuh slot |
 | Burst | Controller di pihak mana pun | Tahan +60 kalau bertahan atau Power +60 kalau menyerang, boleh melawan tipe apa pun, lalu chain langsung selesai |
 
 ### Aturan
 
-1. Chain dibuka saat Skill Utama dideklarasikan, kalau pihak bertahan punya minimal satu kartu yang boleh dipakai: spirit yang boleh menangkis sesuai tipe, icon di atas 5000, tidak stun atau Lelah, mana cukup, dan kartunya sah menurut mode tipe. Kalau tidak ada, serangan langsung mendarat tanpa chain.
-2. Pihak bertahan bergerak pertama, lalu bergantian. Setiap giliran: taruh 1 kartu atau pass.
-3. Satu spirit boleh menaruh lebih dari satu kartu per chain. Syarat icon dicek sekali saat chain dibuka.
+1. Chain dibuka saat Skill Utama dideklarasikan, kalau pihak bertahan punya minimal satu reaksi yang boleh dipakai: spirit yang boleh menangkis sesuai tipe, icon di atas 5000, tidak stun atau Lelah, mana cukup, dan reaksinya sah menurut mode tipe. Kalau tidak ada, serangan langsung mendarat tanpa chain.
+2. Pihak bertahan bergerak pertama, lalu bergantian. Setiap giliran: taruh 1 reaksi atau pass.
+3. Satu spirit boleh menaruh lebih dari satu reaksi per chain, tapi setiap pihak hanya boleh memasang satu reaksi bernama sama per chain (D8). Syarat icon dicek sekali saat chain dibuka.
 4. Si penyerang boleh menaruh Tekan untuk serangannya sendiri walaupun icon-nya sudah di 0. Partner penyerang butuh icon di atas 5000 saat chain dibuka.
 5. Chain selesai saat pihak yang dapat giliran pass, atau saat Burst dipasang.
 6. Damage = Power total dikurangi Tahan total, minimal 10 (chip damage), lalu dikali modifier (bagian 11).
-7. Tertahan penuh: kalau Tahan sama atau lebih besar dari Power dan minimal satu kartu cocok tipe ikut dipakai, penyerang jadi Vulnerable selama 20 tick (damage diterima +30%). Efek tambahan Skill Utama, seperti stun, hanya terjadi kalau serangan tidak tertahan penuh. Buff penyerang yang seharusnya terpakai tidak hilang kalau serangan tertahan penuh.
+7. Tertahan penuh: kalau Tahan sama atau lebih besar dari Power dan minimal satu reaksi cocok tipe ikut dipakai, penyerang jadi Vulnerable selama 20 tick (damage diterima +30%). Efek tambahan Skill Utama, seperti stun, hanya terjadi kalau serangan tidak tertahan penuh. Buff penyerang yang seharusnya terpakai tidak hilang kalau serangan tertahan penuh.
 8. Setiap pemain punya bank waktu 35 detik waktu nyata per match. Kalau habis, setiap giliran hanya 0,5 detik, tapi pihak bertahan selalu mendapat minimal 1 detik.
 9. Auto-pass: pemain bisa mengatur auto-pass per spirit. Ini pengaturan UX, bukan aturan.
 
 ## 8. Beban dan Lelah
 
-- Setiap kartu yang ditaruh menambah 1 beban ke spirit yang menaruhnya. Burst menambah 2.
-- Beban kembali ke 0 setelah 200 tick tanpa menaruh kartu.
-- Mundurnya icon dihitung per kartu dan diterapkan setelah chain selesai: kartu dengan beban 1 memundurkan 5000, kartu dengan beban 2 memundurkan 7500, minimal 0. Icon si penyerang tidak mundur.
-- Kartu yang membuat beban mencapai 3 boleh dipakai, tapi spirit itu tidak boleh menaruh kartu lagi di chain tersebut. Setelah chain selesai, spirit itu kena Lelah: icon ke 0, selama 40 tick tidak bisa ikut chain, dan damage diterima +20%.
+- Setiap reaksi yang ditaruh menambah 1 beban ke spirit yang menaruhnya. Burst menambah 2.
+- Beban kembali ke 0 setelah 200 tick tanpa menaruh reaksi.
+- Mundurnya icon dihitung per reaksi dan diterapkan setelah chain selesai: reaksi dengan beban 1 memundurkan 5000, reaksi dengan beban 2 memundurkan 7500, minimal 0. Icon si penyerang tidak mundur.
+- Reaksi yang membuat beban mencapai 3 boleh dipakai, tapi spirit itu tidak boleh menaruh reaksi lagi di chain tersebut. Setelah chain selesai, spirit itu kena Lelah: icon ke 0, selama 40 tick tidak bisa ikut chain, dan damage diterima +20%.
 - Lelah selesai saat durasinya habis, atau saat Skill Utama spirit itu sendiri mendarat tanpa tertahan penuh. Saat Lelah selesai, beban kembali ke 0.
 - Spirit yang berada di bench selama 50 tick bebannya kembali ke 0.
 
@@ -128,7 +130,7 @@ Setiap tim membawa 4 spirit: 2 di arena dan 2 di bench.
 ## 12. Pembukaan, Fase Akhir, dan kemenangan
 
 - Pembukaan: kedua lead masuk di 0:00. Semua icon di 5000, Energy 50%, mana 5.
-- Fase Akhir mulai 4:00: regen mana dua kali lipat. Setiap 30 detik, damage naik 15% dan heal serta perisai HP turun 15%, menumpuk. Nilai Tahan dari kartu tidak terpengaruh.
+- Fase Akhir mulai 4:00: regen mana dua kali lipat. Setiap 30 detik, damage naik 15% dan heal serta perisai HP turun 15%, menumpuk. Nilai Tahan dari reaksi tidak terpengaruh.
 - Menang saat lawan kehilangan 3 dari 4 spirit (D3). Tidak ada menang karena waktu.
 - KO ketiga kedua tim di tick yang sama: tim dengan total persentase HP tersisa lebih tinggi menang. Kalau sama persis, seri.
 - Surrender boleh kalau tertinggal 2 KO.
@@ -161,8 +163,8 @@ Kalau ada aturan yang ambigu saat coding, tambahkan baris di sini dengan default
 
 | No | Pertanyaan | Default sementara |
 | --- | --- | --- |
-| 1 | Bagaimana posisi depan dan belakang ditentukan di arena 2D samping, dan apa artinya untuk target Kontak? | Spirit yang lebih dekat ke tengah adalah posisi depan. Kontak boleh menargetkan siapa saja |
-| 2 | Bolehkah satu spirit memakai tangkisan yang sama dua kali dalam satu chain? | Boleh. Tangkisan adalah kemampuan, bukan kartu sekali pakai. Batasnya mana dan beban |
+| 1 | Bagaimana posisi depan dan belakang ditentukan di arena top-down (D9), dan apa artinya untuk target Kontak? | Posisi depan dan belakang dihitung dari jarak ke garis tengah saat itu, bukan slot tetap. Posisi awal: dua spirit berdampingan atas-bawah. Kontak boleh menargetkan siapa saja |
+| 2 | Bolehkah reaksi yang sama dipakai dua kali dalam satu chain? | Diputuskan (D8): setiap pihak hanya boleh memasang satu reaksi bernama sama per chain |
 | 3 | Lelah adalah status, dan status berhenti di bench. Apakah Lelah ikut beku di bench? | Tidak. Lelah hilang saat beban direset setelah 50 tick di bench, karena bench adalah obat beban |
 | 4 | Kenaikan damage pertama di Fase Akhir terjadi di 4:00 atau 4:30? | 4:30, lalu setiap 30 detik setelahnya. Regen mana dua kali lipat sudah mulai di 4:00 |
 | 5 | Tipe Resonansi dipilih per tim atau per spirit? | Satu tipe per tim, dipakai oleh spirit mana pun yang beresonansi |

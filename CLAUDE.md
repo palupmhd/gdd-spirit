@@ -6,7 +6,7 @@ Panduan untuk Claude Code di repo ini. Baca seluruhnya sebelum mengerjakan apa p
 
 Pemanggil Spirit (judul kerja) adalah game PvP battle 2v2 untuk PC/Steam, premium sekali beli, dibuat solo oleh Upi dengan Unity. Spirit bertarung otomatis sesuai role. Pemain mengatur kapan Skill Utama dipakai, kapan menjawab serangan lewat chain aksi-reaksi, dan kapan merotasi spirit. Sumber dayanya: mana bersama, timeline icon, dan beban reaction.
 
-Fase sekarang: membangun prototipe grey-box dari `docs/design/spec-prototipe.md`. Belum ada kode di repo. Sim C# lama (`pemanggil-sim-m1.zip`, aturan v4, 82 tes) ada di tangan Upi dan akan di-port ke sini.
+Fase sekarang: membangun prototipe grey-box dari `docs/design/spec-prototipe.md`. Arah visual: arena 2D dilihat dari atas seperti stadion, gaya pixel art (keputusan D9). Belum ada kode di repo. Sim C# lama (`pemanggil-sim-m1.zip`, aturan v4, 82 tes) ada di tangan Upi dan akan di-port ke sini.
 
 ## Pilar (dikunci)
 
@@ -43,6 +43,8 @@ Latar belakang, tidak diperbarui lagi dan bukan acuan aturan: `v3.3-status.md`, 
 
 Selalu pakai "spirit". Jangan pernah menulis "pokemon" atau "Pokémon" di kode, nama aset, dokumen publik, atau commit. Alasannya legal: Nintendo dan The Pokémon Company aktif menggugat (kasus Palworld, 2024).
 
+Semua yang dipasang di chain disebut reaksi, bukan kartu. Game ini bukan card game.
+
 Istilah desain berbahasa Indonesia, identifier kode berbahasa Inggris:
 
 | Desain | Kode |
@@ -54,6 +56,7 @@ Istilah desain berbahasa Indonesia, identifier kode berbahasa Inggris:
 | Kontak, Lontaran, Rapalan | `AttackType.Contact`, `AttackType.Projectile`, `AttackType.Cast` |
 | Dodge, Shield, Interrupt, Burst | `ReactionType.Dodge`, `.Shield`, `.Interrupt`, `.Burst` |
 | Chain, layer, pass | `Chain`, `ChainLayer`, `Pass` |
+| Reaksi (semua yang dipasang di chain) | `Reaction` |
 | Beban reaction, Lelah | `ReactionLoad`, `Fatigue` |
 | Vulnerable | `Vulnerable` |
 | Perfect Swap, Swap Darurat | `PerfectSwap`, `EmergencySwap` |
