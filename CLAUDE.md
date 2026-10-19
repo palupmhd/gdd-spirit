@@ -4,7 +4,7 @@ Panduan untuk Claude Code di repo ini. Baca seluruhnya sebelum mengerjakan apa p
 
 ## Proyek
 
-Pemanggil Spirit (judul kerja) adalah game PvP battle 2v2 untuk PC/Steam, premium sekali beli, dibuat solo oleh Upi dengan Unity. Spirit bertarung otomatis sesuai role. Pemain mengatur kapan Main Skill dipakai, kapan menjawab serangan lewat chain aksi-reaksi, dan kapan merotasi spirit. Sumber dayanya: mana bersama, timeline, dan load.
+Pemanggil Spirit (judul kerja) adalah game PvP battle 2v2 untuk PC/Steam, premium sekali beli, dibuat solo oleh Upi dengan Unity. Spirit bertarung otomatis sesuai role. Pemain mengatur kapan Main Skill dipakai, kapan menjawab serangan lewat chain aksi-reaksi, Formation tim, dan kapan merotasi spirit. Sumber dayanya: mana bersama, timeline, load, dan posisi di arena.
 
 Fase sekarang: membangun prototipe grey-box dari `docs/design/spec-prototipe.md`. Arah visual: arena 2D dilihat dari atas seperti stadion, gaya pixel art (keputusan D9). Belum ada kode di repo. Sim C# lama (`pemanggil-sim-m1.zip`, aturan v4, 82 tes) ada di tangan Upi dan akan di-port ke sini.
 
@@ -28,7 +28,7 @@ Yang berlaku:
 3. `docs/design/keputusan.md`: log keputusan Upi. Setiap perubahan aturan dicatat di sini dulu, lalu spec diperbarui.
 4. `docs/design/hypothesis-backlog.md`: usulan yang menunggu playtest.
 
-Latar belakang, tidak diperbarui lagi dan bukan acuan aturan: `v3.3-status.md`, `chain-dan-tipe.md`, `prototype-assumptions.md`, `review-v3.3.md`, `gambaran-battle.md`, `arah-visual.md`, dan `diskusi-*.md` di `docs/design/`.
+Latar belakang, tidak diperbarui lagi dan bukan acuan aturan: `v3.3-status.md`, `chain-dan-tipe.md`, `prototype-assumptions.md`, `review-v3.3.md`, `gambaran-battle.md`, `arah-visual.md`, `audit-*.md`, dan `diskusi-*.md` di `docs/design/`.
 
 ## Aturan desain (paling penting)
 
@@ -57,11 +57,15 @@ Semua yang dipasang di chain disebut reaction, bukan kartu. Game ini bukan card 
 | Reaction, Basic Reaction, Special Reaction | `Reaction` | reaksi, tangkisan |
 | Dodge, Shield, Interrupt | `ReactionType.Dodge`, `.Shield`, `.Interrupt` | Elak, Perisai, Sela |
 | Press, Burst | `ReactionType.Press`, `.Burst` | Tekan |
+| Intercept, Retreat, Lock | `ReactionType.Intercept`, `.Retreat`, `.Lock` | Hadang, Mundur, Kunci |
+| Counter, Reflect, Cancel, Steal | `ReactionType.Counter`, `.Reflect`, `.Cancel`, `.Steal` | Balas, Pantul, Potong, Curi |
+| Pressure, Dominate, Pierce, Execute | `ReactionType.Pressure`, `.Dominate`, `.Pierce`, `.Execute` | Desak, Tembus, Habisi |
+| Endure, Heal | `ReactionType.Endure`, `.Heal` | Teguh, Pulih |
 | Chain, layer, pass | `Chain`, `ChainLayer`, `Pass` | |
 | Power, Block | `Power`, `Block` | Tahan |
 | Full Block, Chip Damage, Type Match | `FullBlock`, `ChipDamage`, `TypeMatch` | tertahan penuh, tangkisan cocok tipe |
 | Load, Fatigue | `ReactionLoad`, `Fatigue` | beban reaction, Lelah |
-| Vulnerable | `Vulnerable` | |
+| Exposed | `Exposed` | Vulnerable |
 | Perfect Swap, Emergency Swap | `PerfectSwap`, `EmergencySwap` | Swap Darurat |
 | Intro, Outro | `Intro`, `Outro` | |
 | Resonance | `Resonance` | Resonansi |
@@ -69,9 +73,9 @@ Semua yang dipasang di chain disebut reaction, bukan kartu. Game ini bukan card 
 | Overtime | `Overtime` | Fase Akhir |
 | Instinct | `Instinct` | naluri |
 | Slow Zone | `SlowZone` | zona slow, zona lambat |
+| Formation: Compact, Balanced, Aggressive | `Formation.Compact`, dan seterusnya | |
+| Range: Self, Close, Mid, Global | `RangeBand.Self`, dan seterusnya | |
 | Vanguard, Striker, Diver, Controller, Support | `Role.Vanguard`, dan seterusnya | |
-
-Nama Special Reaction (Intercept, Lock, Cancel, dan lainnya) ada di `docs/design/diskusi-2026-10-19.md` dan baru masuk tabel ini setelah daftarnya disetujui.
 
 ## Arsitektur
 
@@ -86,7 +90,9 @@ Aturan Core (`Spirit.Core`):
 - Waktu dalam tick integer (1 tick = 100 ms). Tidak ada `float` atau `double` di logika. Persentase dalam basis point (10000 = 100%). Mana dalam milli-mana (regen 1 per 2 detik = 50 per tick).
 - Tidak memakai `System.Random`, `DateTime`, `Guid`, thread, atau `Task`. RNG (kalau perlu) adalah PRNG sendiri dengan seed per match.
 - Logika tidak bergantung pada urutan enumerasi `Dictionary` atau `HashSet`. Pakai array atau `List` dengan tie-break eksplisit (indeks slot spirit).
-- API: `Match.Step(commands)` maju satu tick dan menghasilkan event. Command: `UseMainSkill`, `Charge`, `PerfectSwap`, `EmergencySwap`, `AddLayer`, `Pass`, `Resonate`, `Surrender`. Presentation membaca snapshot state dan event, tidak pernah mengubah state.
+- API: `Match.Step(commands)` maju satu tick dan menghasilkan event. Command: `UseMainSkill`, `Charge`, `PerfectSwap`, `EmergencySwap`, `SetFormation`, `AddLayer`, `Pass`, `Resonate`, `Surrender`. Presentation membaca snapshot state dan event, tidak pernah mengubah state.
+- Dua jam: jam dunia beku total selama chain, jam chain tetap berjalan dalam tick waktu nyata untuk batas waktu keputusan (D16).
+- Posisi di arena memakai koordinat integer (1 tile = 100 unit). Gerak memakai steering sederhana tanpa navmesh.
 - Semua angka aturan ada di konfigurasi (data), tidak di-hard-code. Core menerima objek konfigurasi yang sudah jadi. Parsing JSON dilakukan di luar Core.
 - Resolver chain di balik interface (`IChainResolver`). Default-nya model pengurangan damage (keputusan D1). Model pembatalan v3.3 disimpan sebagai pembanding di sim.
 
@@ -134,18 +140,20 @@ Setiap aturan punya tes unit yang namanya menyebut aturannya, misalnya `Chain_De
 Sim harus mencatat metrik yang menjawab pertanyaan playtest dan masalah yang diketahui:
 
 - Distribusi kedalaman chain, mana yang dibakar tiap pihak, dan damage akhir per chain.
-- Untuk setiap Main Skill yang mendarat: alasan defender tidak menjawab (ikon belum lewat midline secara alami, ikon mundur karena reaction sebelumnya, mana kurang, Fatigue, stun, tipe tidak cocok, memilih pass).
+- Untuk setiap Main Skill yang mendarat: alasan defender tidak menjawab (ikon belum lewat midline secara alami, ikon mundur karena reaction sebelumnya, mana kurang, Fatigue, stun, tipe tidak cocok, di luar jarak, memilih pass).
 - Porsi damage otomatis dan porsi damage intro dari total damage.
 - Jeda terpanjang tanpa aksi per pemain.
 - Jumlah dan total durasi slow-mo per menit.
 - Keputusan per menit per pemain.
 - Prediktabilitas chain: seberapa sering hasil chain bisa ditebak dari state yang terlihat saat chain terbuka.
-- Jumlah chain per menit, rata-rata durasi slow-mo per chain, dan durasi match.
+- Jumlah chain per menit, rata-rata durasi slow-mo per chain, dan durasi match dalam jam dunia maupun waktu nyata.
+- Seberapa sering tiap reaction dibawa dan dipakai, kontribusinya ke kemenangan, dan seberapa sering tiap role (terutama Controller) dipilih.
+- Pemakaian tiap Formation.
 
 ## Batas scope solo dev
 
 - Jangan membangun netcode, backend, akun, monetisasi, atau pipeline art sebelum grey-box terbukti seru.
-- Urutan rilis: lawan AI, lalu PvP async (ghost), lalu PvP live.
+- Urutan rilis: lawan AI, lalu PvP async (tantangan tim dengan ghost yang memakai instruksi pemiliknya), lalu PvP live sebagai ranked yang sesungguhnya (D17).
 - Scope putaran pertama mengikuti bagian 1 di `spec-prototipe.md`.
 - Pilih solusi paling sederhana yang bisa dimainkan. Abstraksi baru hanya kalau sudah dibutuhkan dua kali.
 
