@@ -169,3 +169,6 @@ Kalau ada aturan yang ambigu saat coding, tambahkan baris di sini dengan default
 | 3 | Fatigue adalah status, dan status berhenti di bench. Apakah Fatigue ikut beku di bench? | Tidak. Fatigue hilang saat load direset setelah 50 tick di bench, karena bench adalah obat load |
 | 4 | Kenaikan damage pertama di Overtime terjadi di 4:00 atau 4:30? | 4:30, lalu setiap 30 detik setelahnya. Regen mana dua kali lipat sudah mulai di 4:00 |
 | 5 | Tipe Resonance dipilih per tim atau per spirit? | Satu tipe per tim, dipakai oleh spirit mana pun yang beresonansi |
+| 6 | Apa yang terjadi kalau ikon mencapai Ready saat chain berjalan? | Ready menunggu sampai chain selesai, dan timer menahan Ready tidak berjalan selama chain. Usulan perubahan aturan ada di audit 2026-10-19, P0 nomor 1 dan 2 |
+| 7 | Bagaimana urutan dua Main Skill yang dideklarasikan di tick yang sama? | Speed tertinggi duluan, lalu indeks slot. Main Skill kedua membuka chain baru setelah chain pertama selesai |
+| 8 | Target 5 sampai 7 menit memakai waktu game atau waktu nyata? | Waktu game. Waktu nyata dicatat terpisah di sim dan playtest. Usulan batas waktu nyata ada di audit 2026-10-19, P0 nomor 5 |
