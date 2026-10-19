@@ -9,7 +9,7 @@ Pemanggil Spirit adalah game tentang menjadi pelatih. Spirit bertarung dengan na
 ## Empat pilar (yang lebih atas menang kalau bertentangan)
 
 1. Pelatih, bukan pemain. Keputusan di tangan pemain, eksekusi di tangan spirit. Setiap hasil match bisa ditelusuri ke keputusan pemain, bukan ke kecepatan tangan atau keberuntungan. Auto battle adalah lapangan, bukan permainannya.
-2. Manajemen terbuka. Semua kondisi battle terlihat di layar: mana, timeline, beban, kondisi tim. Satu-satunya yang tersembunyi adalah loadout di ranked, sebagai ruang bluff seperti kartu tertutup di poker (keputusan D5). Pemain menang karena efisien dan efektif memakai sumber daya, dan kalah karena serakah. Keserakahan harus selalu menggoda dan selalu ada harganya.
+2. Manajemen terbuka. Semua kondisi battle terlihat di layar: mana, timeline, beban, kondisi tim. Satu-satunya yang tersembunyi adalah loadout di ranked, sebagai ruang bluff seperti kartu tertutup di poker (keputusan D5). Loadout mencakup pilihan Main Skill, reaction, dan tipe Resonance tim (D18). Pemain menang karena efisien dan efektif memakai sumber daya, dan kalah karena serakah. Keserakahan harus selalu menggoda dan selalu ada harganya.
 3. Aksi-reaksi adalah jantung. Chain adalah momen terpenting: setiap jawaban adalah taruhan sumber daya, seperti raise di poker. Game rela melambat demi chain, asal setiap chain berisi keputusan nyata.
 4. Naluri yang bisa dipelajari. Setiap spirit punya kepribadian lewat naluri yang konsisten, seperti troop di Clash of Clans yang punya target favorit masing-masing. Kalau spirit terlihat bodoh, itu karena pemain salah memakainya, dan pemain bisa melihat kenapa.
 

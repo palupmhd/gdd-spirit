@@ -17,16 +17,26 @@ Aturan yang berlaku ada di [spec prototipe](spec-prototipe.md), yang disusun dar
 | D9 | 2026-10-19 | Arah visual: arena 2D dilihat dari atas seperti stadion, gaya pixel art | Usulan kamera samping dan panggung wayang | [Diskusi 2026-10-19](diskusi-2026-10-19.md), bagian arena top-down |
 | D10 | 2026-10-19 | Hipotesis H17 dihapus. Basic Reaction hanya boleh dipakai kalau cocok attack type. Toggle `typeMatchMode` dihapus | H17, toggle mode efisiensi | [Diskusi 2026-10-19](diskusi-2026-10-19.md), bagian lubang tipe |
 | D11 | 2026-10-19 | Istilah game memakai bahasa Inggris, di dokumen maupun di game. Prosa dokumen tetap bahasa Indonesia | Istilah berbahasa Indonesia (Skill Utama, Lelah, beban, dan lainnya) | Tabel istilah di CLAUDE.md |
+| D12 | 2026-10-19 | Daftar 18 reaction disetujui sebagai satu set: Dodge, Shield, Interrupt, Press, Intercept, Retreat, Lock, Counter, Reflect, Cancel, Steal, Pressure, Dominate, Pierce, Execute, Endure, Heal, Burst | Usulan set awal dan lanjutan, hipotesis H18 | [Spec prototipe](spec-prototipe.md) bagian 8 |
+| D13 | 2026-10-19 | Pool 3 reaction per spirit (1 Basic dan 2 Special), membawa 2. Press gratis untuk semua spirit, Burst khusus Controller | Pool 3 tanpa struktur | [Spec prototipe](spec-prototipe.md) bagian 3 |
+| D14 | 2026-10-19 | Sistem jarak: pita Self, Close, Mid, Global. Interrupt sejauh jangkauan Cast. Jangkauan Main Skill per attack type. Jarak diukur saat chain dibuka | Reaction tanpa syarat posisi, hipotesis H19 | [Spec prototipe](spec-prototipe.md) bagian 4 |
+| D15 | 2026-10-19 | Formation tim (Compact, Balanced, Aggressive) sebagai instruksi pelatih, terlihat lawan, jeda 30 tick | Posisi sepenuhnya ditentukan AI, hipotesis H20 | [Spec prototipe](spec-prototipe.md) bagian 4 |
+| D16 | 2026-10-19 | Tujuh perbaikan audit P0: jam dunia beku selama chain, satu chain pada satu waktu dengan urutan Speed lalu slot, chain terbuka dari informasi publik dan pass tampil minimal 1 detik, waktu dasar 4 detik per giliran ditambah bank 30 detik, target 5 sampai 7 menit jam dunia dan di bawah 10 menit nyata, Vulnerable diganti Exposed, penalti -30% ke target stun dihapus | Dunia 10% selama chain, bank 35 detik, Vulnerable 2 detik, penalti stun | [Audit 2026-10-19](audit-2026-10-19.md) P0 |
+| D17 | 2026-10-19 | PvP async adalah tantangan tim dengan ghost yang memakai instruksi dari pemiliknya. Ranked yang sesungguhnya adalah PvP live | Ghost dengan preset tanpa definisi | [Audit 2026-10-19](audit-2026-10-19.md) P1 nomor 8 |
+| D18 | 2026-10-19 | Tipe Resonance adalah bagian dari loadout, jadi tersembunyi di ranked dan terbuka di turnamen | Tipe Resonance di luar definisi loadout | [Audit 2026-10-19](audit-2026-10-19.md) P2 nomor 14 |
 
 ## Menunggu keputusan Upi
-
-Daftar reaction, model pool, jarak dan Formation, serta P0 dari audit 2026-10-19 perlu diputuskan sebelum spec diperbarui. Usulan lain diputuskan setelah playtest pertama.
 
 | Topik | Usulan | Detail |
 | --- | --- | --- |
 | Resonance | Terbuka lewat syarat role yang terlihat kedua pemain | Hipotesis H16 |
-| Daftar reaction lengkap | 18 reaction sebagai satu set, dievaluasi ulang dengan riset LoL, Dota 2, dan Battlerite | Hipotesis H18, [diskusi 2026-10-19](diskusi-2026-10-19.md) |
-| Model pool reaction | Pool 3 per spirit berisi 1 Basic dan 2 Special, membawa 2, Press gratis untuk semua, Burst khusus Controller | [Diskusi 2026-10-19](diskusi-2026-10-19.md), evaluasi nomor 2 |
-| Jarak dan Formation | Empat pita jarak untuk reaction dan Main Skill, plus Formation tim sebagai instruksi pelatih | Hipotesis H19, H20, [diskusi 2026-10-19](diskusi-2026-10-19.md) |
-| Audit 2026-10-19 | 7 perbaikan P0 (logika beku saat chain, urutan aksi bertumpuk, syarat chain dari info publik, waktu dasar per giliran, durasi waktu nyata, Exposed, hapus penalti -30%), serta arah async, mode puzzle, dan roster | [Audit 2026-10-19](audit-2026-10-19.md) |
 | Format | Tetap 2v2 sesuai batasan. Tidak ada perubahan kecuali Upi meminta | [Diskusi 2026-10-18 bagian 2](diskusi-2026-10-18-2.md) |
+
+## Ditunda
+
+Upi memilih fokus ke combat dulu. Topik berikut dibahas lagi setelah combat inti terbukti seru.
+
+| Topik | Usulan | Detail |
+| --- | --- | --- |
+| Mode PvE | Mode puzzle chain sebagai isi single-player dan tutorial, ditambah gauntlet melawan tim AI | Hipotesis H21, [audit 2026-10-19](audit-2026-10-19.md) P1 nomor 9 |
+| Akses roster | Roster dasar terbuka untuk ranked sejak awal, progresi hanya kosmetik atau PvE | Hipotesis H22, [audit 2026-10-19](audit-2026-10-19.md) P1 nomor 10 |
