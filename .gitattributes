@@ -1,0 +1,15 @@
+# Force LF so files written on Linux and Windows do not conflict.
+* text=auto eol=lf
+
+# Binary assets (add to Git LFS before the first one is committed).
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.psd binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.fbx binary
+*.dll binary
+*.ttf binary
+*.otf binary
