@@ -20,11 +20,12 @@ Aturan yang berlaku ada di [spec prototipe](spec-prototipe.md), yang disusun dar
 
 ## Menunggu keputusan Upi
 
-Daftar reaction dan model pool perlu diputuskan sebelum spec diperbarui. Usulan lain diputuskan setelah playtest pertama.
+Daftar reaction, model pool, serta jarak dan Formation perlu diputuskan sebelum spec diperbarui. Usulan lain diputuskan setelah playtest pertama.
 
 | Topik | Usulan | Detail |
 | --- | --- | --- |
 | Resonance | Terbuka lewat syarat role yang terlihat kedua pemain | Hipotesis H16 |
 | Daftar reaction lengkap | 18 reaction sebagai satu set, dievaluasi ulang dengan riset LoL, Dota 2, dan Battlerite | Hipotesis H18, [diskusi 2026-10-19](diskusi-2026-10-19.md) |
 | Model pool reaction | Pool 3 per spirit berisi 1 Basic dan 2 Special, membawa 2, Press gratis untuk semua, Burst khusus Controller | [Diskusi 2026-10-19](diskusi-2026-10-19.md), evaluasi nomor 2 |
+| Jarak dan Formation | Empat pita jarak untuk reaction dan Main Skill, plus Formation tim sebagai instruksi pelatih | Hipotesis H19, H20, [diskusi 2026-10-19](diskusi-2026-10-19.md) |
 | Format | Tetap 2v2 sesuai batasan. Tidak ada perubahan kecuali Upi meminta | [Diskusi 2026-10-18 bagian 2](diskusi-2026-10-18-2.md) |
