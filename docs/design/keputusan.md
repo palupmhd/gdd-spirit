@@ -24,6 +24,7 @@ Aturan yang berlaku ada di [spec prototipe](spec-prototipe.md), yang disusun dar
 | D16 | 2026-10-19 | Tujuh perbaikan audit P0: jam dunia beku selama chain, satu chain pada satu waktu dengan urutan Speed lalu slot, chain terbuka dari informasi publik dan pass tampil minimal 1 detik, waktu dasar 4 detik per giliran ditambah bank 30 detik, target 5 sampai 7 menit jam dunia dan di bawah 10 menit nyata, Vulnerable diganti Exposed, penalti -30% ke target stun dihapus | Dunia 10% selama chain, bank 35 detik, Vulnerable 2 detik, penalti stun | [Audit 2026-10-19](audit-2026-10-19.md) P0 |
 | D17 | 2026-10-19 | PvP async adalah tantangan tim dengan ghost yang memakai instruksi dari pemiliknya. Ranked yang sesungguhnya adalah PvP live | Ghost dengan preset tanpa definisi | [Audit 2026-10-19](audit-2026-10-19.md) P1 nomor 8 |
 | D18 | 2026-10-19 | Tipe Resonance adalah bagian dari loadout, jadi tersembunyi di ranked dan terbuka di turnamen | Tipe Resonance di luar definisi loadout | [Audit 2026-10-19](audit-2026-10-19.md) P2 nomor 14 |
+| D19 | 2026-10-19 | Urutan putaran diubah: Core C# murni dan grey-box Unity dibangun duluan, lalu playtest manusia (dua pemain di satu PC), dan matriks bot menyusul untuk menyetel angka. Sim lama tidak lagi ditunggu, Core ditulis dari spec. H23 dan H24 dibangun sebagai toggle yang mati | Urutan putaran lama di spec bagian 18, port `pemanggil-sim-m1.zip` sebagai langkah pertama | [Spec prototipe](spec-prototipe.md) bagian 18 |
 
 ## Menunggu keputusan Upi
 

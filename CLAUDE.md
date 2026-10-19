@@ -6,7 +6,7 @@ Panduan untuk Claude Code di repo ini. Baca seluruhnya sebelum mengerjakan apa p
 
 Pemanggil Spirit (judul kerja) adalah game PvP battle 2v2 untuk PC/Steam, premium sekali beli, dibuat solo oleh Upi dengan Unity. Spirit bertarung otomatis sesuai role. Pemain mengatur kapan Main Skill dipakai, kapan menjawab serangan lewat chain aksi-reaksi, Formation tim, dan kapan merotasi spirit. Sumber dayanya: mana bersama, timeline, load, dan posisi di arena.
 
-Fase sekarang: membangun prototipe grey-box dari `docs/design/spec-prototipe.md`. Arah visual: arena 2D dilihat dari atas seperti stadion, gaya pixel art (keputusan D9). Belum ada kode di repo. Sim C# lama (`pemanggil-sim-m1.zip`, aturan v4, 82 tes) ada di tangan Upi dan akan di-port ke sini.
+Fase sekarang: membangun prototipe grey-box dari `docs/design/spec-prototipe.md`. Arah visual: arena 2D dilihat dari atas seperti stadion, gaya pixel art (keputusan D9). Belum ada kode di repo. Urutannya (D19): Core C# murni dengan unit test, lalu grey-box Unity, lalu playtest manusia, baru matriks bot untuk menyetel angka. Sim C# lama (`pemanggil-sim-m1.zip`) tidak lagi ditunggu, Core ditulis dari spec.
 
 ## Pilar (dikunci)
 
@@ -124,11 +124,11 @@ tools/sim/                    proyek .NET yang me-link source Core dan AI
 
 ## Build dan tes
 
-Belum ada perintah yang jalan karena kode belum ada. Setelah sim di-port, targetnya:
+Belum ada perintah yang jalan karena kode belum ada. Targetnya:
 
 ```bash
 dotnet test tools/sim/Spirit.Sim.Tests          # semua tes Core dan AI
-dotnet run --project tools/sim/Spirit.Sim -- --matrix --seeds 200   # matriks bot
+dotnet run --project tools/sim/Spirit.Sim -- --matrix --seeds 200   # matriks bot, menyusul setelah playtest pertama
 ```
 
 Kalau `dotnet` belum terpasang di container, pasang .NET SDK 8. Di Unity, tes yang sama jalan lewat Test Runner (EditMode).
@@ -162,6 +162,10 @@ Sim harus mencatat metrik yang menjawab pertanyaan playtest dan masalah yang dik
 - Unity 6 LTS (pakai rilis LTS terbaru saat project dibuat), URP, Input System.
 - Serialization Force Text dan Visible Meta Files (default Unity 6). File `.meta` selalu ikut di-commit.
 - Git LFS dipasang sebelum aset biner pertama (gambar, audio, model) masuk repo.
+- `.gitattributes` memaksa akhir baris LF, supaya file dari container Linux dan dari Windows tidak bentrok.
+- Container cloud tidak punya Unity. Core diverifikasi lewat `dotnet test`. Kode Presentation tidak bisa dikompilasi di container, jadi dibuat setipis mungkin dan Upi melaporkan error Console setelah `git pull`.
+- Jangan menulis `.unity`, `.prefab`, atau asset Unity lain dengan tangan. Scene dibuat Upi di editor dan hanya memuat satu GameObject dengan komponen bootstrap. Isinya dibangun dari kode.
+- Pembagian file supaya tidak bentrok: Claude menyunting `.cs`, `.asmdef`, JSON data, dan dokumen. Upi menyunting scene, Project Settings, dan aset. File `.meta` baru yang dibuat Unity setelah `git pull` di-commit oleh Upi.
 
 ## Cara bekerja dengan Upi
 

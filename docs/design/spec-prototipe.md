@@ -18,6 +18,7 @@ Setiap aturan dinilai terhadap [pilar](pillars.md): pelatih bukan pemain, manaje
 | Energy, Auto Skill, dan Instinct | Mode PvE dan akses roster (ditunda, H21 dan H22) |
 | Overtime, menang di 3 KO (D3), surrender | Art, animasi, narasi |
 | Lawan AI sederhana | |
+| Dua pemain di satu PC untuk playtest (D19) | |
 
 Setiap tim membawa 4 spirit: 2 di arena dan 2 di bench.
 
@@ -228,13 +229,16 @@ Sekali per match per tim, satu spirit yang Ready boleh beresonansi. Gratis dan t
 | `introOutro` | Mati | Hidup |
 | `resonance` | Mati | Hidup |
 | `slowZone` | Mati | Hidup |
+| `matchedBasicBlock` | Mati | Hidup: Basic Reaction yang cocok tipe bernilai Block 100 (H23) |
+| `fatigueKeepsLoad` | Mati | Hidup: saat Fatigue selesai, load tidak kembali ke 0 (H24) |
 
-## 18. Urutan putaran
+## 18. Urutan putaran (D19)
 
-1. Port sim, lalu jalankan matriks bot untuk kedua `chainResolver`. Ukur metrik wajib di CLAUDE.md.
-2. Setel angka sampai match 5 sampai 7 menit jam dunia, di bawah 10 menit waktu nyata, dan porsi damage otomatis 20 sampai 25%.
-3. Grey-box Unity dengan default putaran pertama, lalu playtest pertama oleh Upi.
-4. Setiap putaran berikutnya menyalakan atau mengubah satu hal saja, berdasarkan catatan playtest.
+1. Tulis Core dari spec, lengkap dengan unit test yang jalan lewat `dotnet test`. H23 dan H24 dibangun sebagai toggle yang mati.
+2. Grey-box Unity: satu scene yang dibangun dari kode (arena, spirit polos, timeline, panel chain), dua pemain di satu PC, dengan debug menu untuk menyalakan toggle.
+3. Playtest pertama oleh Upi dengan default putaran pertama.
+4. Matriks bot untuk kedua `chainResolver` dan metrik wajib di CLAUDE.md, untuk menyetel angka sampai match 5 sampai 7 menit jam dunia, di bawah 10 menit waktu nyata, dan porsi damage otomatis 20 sampai 25%.
+5. Setiap putaran berikutnya menyalakan atau mengubah satu hal saja, berdasarkan catatan playtest.
 
 ## 19. Pertanyaan terbuka
 
@@ -258,3 +262,4 @@ Kalau ada aturan yang ambigu saat coding, tambahkan baris di sini dengan default
 | 14 | Mundurnya ikon saat Burst menambah 2 load sekaligus | Dihitung dari load setelah reaction itu: dari 0 ke 2 memundurkan 7500, dari 1 ke 3 memicu Fatigue |
 | 15 | Kenaikan damage Overtime menumpuk dengan cara apa | Dijumlahkan: +15% di 4:30, +30% di 5:00, +45% di 5:30, dan seterusnya. Penurunan heal dan perisai HP juga dijumlahkan |
 | 16 | Pembulatan damage setelah modifier | Dibulatkan ke bawah ke bilangan bulat, setelah semua modifier dan sebelum batas Endure |
+| 17 | Loadout tersembunyi saat dua pemain berbagi satu PC | Layar pilih loadout bergantian, dengan layar kosong di antaranya. Pemain kedua tidak melihat pilihan pemain pertama |
