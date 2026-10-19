@@ -22,4 +22,5 @@ Semua usulan di bawah diputuskan setelah playtest pertama, bukan sekarang.
 | Tipe sebagai efisiensi | Tangkisan yang tidak cocok tipe tetap boleh dipakai dengan nilai separuh. Dibandingkan dengan mode izin v3.3 di sim | Hipotesis H17, [spec prototipe](spec-prototipe.md) bagian toggle |
 | Gaya visual | Kamera 2D samping sudah condong disetujui. Gaya yang diusulkan: panggung wayang dengan dalang sebagai narator. Ditunda sampai grey-box terbukti seru | [Arah visual](arah-visual.md) |
 | Resonansi | Terbuka lewat syarat role yang terlihat kedua pemain | Hipotesis H16 |
+| Kartu chain yang variatif | Kartu varian dengan efek, angka dijumlah dan efek diselesaikan dari atas. Diminta Upi untuk diputuskan sekarang, karena menyentuh inti chain | Hipotesis H18, [diskusi 2026-10-19](diskusi-2026-10-19.md) |
 | Format | Tetap 2v2 sesuai batasan. Tidak ada perubahan kecuali Upi meminta | [Diskusi 2026-10-18 bagian 2](diskusi-2026-10-18-2.md) |
