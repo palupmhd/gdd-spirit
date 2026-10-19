@@ -4,7 +4,7 @@ Panduan untuk Claude Code di repo ini. Baca seluruhnya sebelum mengerjakan apa p
 
 ## Proyek
 
-Pemanggil Spirit (judul kerja) adalah game PvP battle 2v2 untuk PC/Steam, premium sekali beli, dibuat solo oleh Upi dengan Unity. Spirit bertarung otomatis sesuai role. Pemain mengatur kapan Skill Utama dipakai, kapan menjawab serangan lewat chain aksi-reaksi, dan kapan merotasi spirit. Sumber dayanya: mana bersama, timeline icon, dan beban reaction.
+Pemanggil Spirit (judul kerja) adalah game PvP battle 2v2 untuk PC/Steam, premium sekali beli, dibuat solo oleh Upi dengan Unity. Spirit bertarung otomatis sesuai role. Pemain mengatur kapan Main Skill dipakai, kapan menjawab serangan lewat chain aksi-reaksi, dan kapan merotasi spirit. Sumber dayanya: mana bersama, timeline, dan load.
 
 Fase sekarang: membangun prototipe grey-box dari `docs/design/spec-prototipe.md`. Arah visual: arena 2D dilihat dari atas seperti stadion, gaya pixel art (keputusan D9). Belum ada kode di repo. Sim C# lama (`pemanggil-sim-m1.zip`, aturan v4, 82 tes) ada di tangan Upi dan akan di-port ke sini.
 
@@ -43,30 +43,35 @@ Latar belakang, tidak diperbarui lagi dan bukan acuan aturan: `v3.3-status.md`, 
 
 Selalu pakai "spirit". Jangan pernah menulis "pokemon" atau "Pokémon" di kode, nama aset, dokumen publik, atau commit. Alasannya legal: Nintendo dan The Pokémon Company aktif menggugat (kasus Palworld, 2024).
 
-Semua yang dipasang di chain disebut reaksi, bukan kartu. Game ini bukan card game.
+Istilah game memakai bahasa Inggris (keputusan D11), di dokumen maupun di game. Prosa dokumen tetap bahasa Indonesia. Dokumen latar belakang masih memakai nama lama berbahasa Indonesia, jadi kolom terakhir membantu membacanya.
 
-Istilah desain berbahasa Indonesia, identifier kode berbahasa Inggris:
+Semua yang dipasang di chain disebut reaction, bukan kartu. Game ini bukan card game.
 
-| Desain | Kode |
-| --- | --- |
-| Skill Utama | `MainSkill` |
-| Skill Auto | `AutoSkill` |
-| Timeline icon, Ready | `Timeline`, `Ready` |
-| Charge | `Charge` |
-| Kontak, Lontaran, Rapalan | `AttackType.Contact`, `AttackType.Projectile`, `AttackType.Cast` |
-| Dodge, Shield, Interrupt, Burst | `ReactionType.Dodge`, `.Shield`, `.Interrupt`, `.Burst` |
-| Chain, layer, pass | `Chain`, `ChainLayer`, `Pass` |
-| Reaksi (semua yang dipasang di chain) | `Reaction` |
-| Beban reaction, Lelah | `ReactionLoad`, `Fatigue` |
-| Vulnerable | `Vulnerable` |
-| Perfect Swap, Swap Darurat | `PerfectSwap`, `EmergencySwap` |
-| Intro, Outro | `Intro`, `Outro` |
-| Resonansi | `Resonance` |
-| Power, Tahan, Tekan | `Power`, `Block`, `Press` |
-| Tertahan penuh, chip damage, tangkisan cocok tipe | `FullBlock`, `ChipDamage`, `TypeMatch` |
-| Luka ringan | `RecoverableDamage` |
-| Fase Akhir | `Overtime` |
-| Vanguard, Striker, Diver, Controller, Support | `Role.Vanguard`, dan seterusnya |
+| Istilah | Kode | Nama lama |
+| --- | --- | --- |
+| Main Skill | `MainSkill` | Skill Utama |
+| Auto Skill | `AutoSkill` | Skill Auto |
+| Timeline, Ready, midline | `Timeline`, `Ready`, `Midline` | timeline icon, garis tengah |
+| Charge | `Charge` | |
+| Contact, Projectile, Cast | `AttackType.Contact`, `AttackType.Projectile`, `AttackType.Cast` | Kontak, Lontaran, Rapalan |
+| Reaction, Basic Reaction, Special Reaction | `Reaction` | reaksi, tangkisan |
+| Dodge, Shield, Interrupt | `ReactionType.Dodge`, `.Shield`, `.Interrupt` | Elak, Perisai, Sela |
+| Press, Burst | `ReactionType.Press`, `.Burst` | Tekan |
+| Chain, layer, pass | `Chain`, `ChainLayer`, `Pass` | |
+| Power, Block | `Power`, `Block` | Tahan |
+| Full Block, Chip Damage, Type Match | `FullBlock`, `ChipDamage`, `TypeMatch` | tertahan penuh, tangkisan cocok tipe |
+| Load, Fatigue | `ReactionLoad`, `Fatigue` | beban reaction, Lelah |
+| Vulnerable | `Vulnerable` | |
+| Perfect Swap, Emergency Swap | `PerfectSwap`, `EmergencySwap` | Swap Darurat |
+| Intro, Outro | `Intro`, `Outro` | |
+| Resonance | `Resonance` | Resonansi |
+| Recoverable Damage | `RecoverableDamage` | luka ringan |
+| Overtime | `Overtime` | Fase Akhir |
+| Instinct | `Instinct` | naluri |
+| Slow Zone | `SlowZone` | zona slow, zona lambat |
+| Vanguard, Striker, Diver, Controller, Support | `Role.Vanguard`, dan seterusnya | |
+
+Nama Special Reaction (Intercept, Lock, Cancel, dan lainnya) ada di `docs/design/diskusi-2026-10-19.md` dan baru masuk tabel ini setelah daftarnya disetujui.
 
 ## Arsitektur
 
@@ -129,7 +134,7 @@ Setiap aturan punya tes unit yang namanya menyebut aturannya, misalnya `Chain_De
 Sim harus mencatat metrik yang menjawab pertanyaan playtest dan masalah yang diketahui:
 
 - Distribusi kedalaman chain, mana yang dibakar tiap pihak, dan damage akhir per chain.
-- Untuk setiap Skill Utama yang mendarat: alasan pihak bertahan tidak menjawab (icon belum lewat garis tengah secara alami, icon mundur karena reaksi sebelumnya, mana kurang, Lelah, stun, tipe tidak cocok, memilih pass).
+- Untuk setiap Main Skill yang mendarat: alasan defender tidak menjawab (ikon belum lewat midline secara alami, ikon mundur karena reaction sebelumnya, mana kurang, Fatigue, stun, tipe tidak cocok, memilih pass).
 - Porsi damage otomatis dan porsi damage intro dari total damage.
 - Jeda terpanjang tanpa aksi per pemain.
 - Jumlah dan total durasi slow-mo per menit.
